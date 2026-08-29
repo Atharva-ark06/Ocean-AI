@@ -14,17 +14,19 @@ Built as a lightweight frontend experience using **HTML, CSS & JavaScript**, the
 
 ### 🌊 Main Interface
 
-> **Replace the image URL below with your first screenshot.**
 
-![Ocean AI Preview]("[https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png"])
+
+<p align="center">
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png">
+</p>
+
 
 ### 🤖 AI / Analysis Interface
 
-> **Replace the image URL below with your second screenshot.**
+<p align="center">
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png">
+</p>
 
-![Ocean AI Analysis]([YOUR_SECOND_IMAGE_LINK_HERE](https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png))
-
----
 
 ## ✨ What is Ocean AI?
 
