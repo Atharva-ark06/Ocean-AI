@@ -16,7 +16,7 @@ Built as a lightweight frontend experience using **HTML, CSS & JavaScript**, the
 
 > **Replace the image URL below with your first screenshot.**
 
-![Ocean AI Preview]([YOUR_FIRST_IMAGE_LINK_HERE](https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png))
+![Ocean AI Preview]("[https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png"])
 
 ### 🤖 AI / Analysis Interface
 
