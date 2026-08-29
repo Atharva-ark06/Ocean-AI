@@ -72,19 +72,10 @@ The chatbot architecture is designed to support customizable API integration, al
 
 ### Potential Applications
 
-```text
-User Query
-    ↓
-AI Interface
-    ↓
-API Integration
-    ↓
-AI Model
-    ↓
-Intelligent Response
-```
+<p align="center">
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987958/ChatGPT_Image_Aug_29_2026_12_44_30_PM.png">
+</p>
 
----
 
 ## 🧠 Deep Learning Image Analysis
 
