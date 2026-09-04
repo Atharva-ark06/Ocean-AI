@@ -7,7 +7,7 @@
 Ocean AI is a futuristic, interactive **web-based ocean intelligence interface** designed to bring AI, 3D visualization, image analysis, and intelligent interaction into a single platform.
 
 Built as a lightweight frontend experience using **HTML, CSS & JavaScript**, the project combines a visually immersive ocean environment with AI-powered capabilities and customizable API integration.
-
+ 
 ---
 
 ## 🖼️ Preview
