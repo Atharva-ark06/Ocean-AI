@@ -124,6 +124,7 @@ Developers can adapt the frontend to communicate with different AI or data servi
 
 # 🛠️ Technology Stack
 
+
 | Technology           | Purpose                           |
 | -------------------- | --------------------------------- |
 | 🌐 HTML5             | Application structure             |
