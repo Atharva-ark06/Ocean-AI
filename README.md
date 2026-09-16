@@ -23,9 +23,17 @@
 
 ## 🖼️ Interface Preview
 
-| **🌊 Main Interface** | **🤖 AI / Analysis Interface** |
-| :---: | :---: |
-| <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png" width="400" alt="Main Interface" /> | <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png" width="400" alt="Analysis Interface" /> |
+<p align="center">
+  <b>🌊 Main Interface</b><br/>
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png" width="100%" alt="Main Interface" />
+</p>
+
+<br/>
+
+<p align="center">
+  <b>🤖 AI / Analysis Interface</b><br/>
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png" width="100%" alt="Analysis Interface" />
+</p>
 
 ---
 
@@ -42,7 +50,7 @@
 ## 💡 Practical Applications
 
 <p align="center">
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987958/ChatGPT_Image_Aug_29_2026_12_44_30_PM.png" width="700" alt="Ocean AI Applications" />
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987958/ChatGPT_Image_Aug_29_2026_12_44_30_PM.png" width="100%" alt="Ocean AI Applications" />
 </p>
 
 * 🐠 **Marine Species Identification:** Automated classification of aquatic life from underwater camera feeds.
@@ -69,30 +77,6 @@
                                  │
                                  ▼
                     🌐 Unified Marine Intelligence
-# 🛠️ Technology Stack
-
-
-| Technology           | Purpose                           |
-| -------------------- | --------------------------------- |
-| 🌐 HTML5             | Application structure             |
-| 🎨 CSS3              | Styling & responsive interface    |
-| ⚡ JavaScript         | Interactivity & application logic |
-| 🧠 AI APIs           | Intelligent interaction           |
-| 🗺️ 3D Visualization | Ocean / detection mapping         |
-| 🔬 Deep Learning     | Image analysis                    |
-| 🔑 API Integration   | External AI/data connectivity     |
-
----
-
-# 📂 Project Structure
-
-```text
-Ocean-AI/
-│
-├── simple.html
-│
-└── README.md
-```
 
 The current implementation intentionally keeps the project lightweight and frontend-focused, making it easy to experiment with and extend.
 
