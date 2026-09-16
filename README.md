@@ -1,127 +1,74 @@
-# 🌊 Ocean AI  
- 
-### 🐋 AI-Powered Ocean Intelligence & Marine Monitoring Interface
-
-> **Explore the ocean. Visualize intelligence. Detect what matters.**
-
-Ocean AI is a futuristic, interactive **web-based ocean intelligence interface** designed to bring AI, 3D visualization, image analysis, and intelligent interaction into a single platform.
-
-Built as a lightweight frontend experience using **HTML, CSS & JavaScript**, the project combines a visually immersive ocean environment with AI-powered capabilities and customizable API integration.
- 
----
-
-## 🖼️ Preview
-
-### 🌊 Main Interface
-
-
+# 🌊 Ocean AI
 
 <p align="center">
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License" />
 </p>
 
-
-### 🤖 AI / Analysis Interface
+<h3 align="center">🐋 AI-Powered Ocean Intelligence & Marine Monitoring Interface</h3>
 
 <p align="center">
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png">
+  <b>Explore the ocean. Visualize intelligence. Detect what matters.</b>
 </p>
 
+---
 
-## ✨ What is Ocean AI?
+## 📌 Overview
 
-Ocean AI is a concept-driven frontend platform for exploring how **Artificial Intelligence can be integrated with marine and oceanographic applications**.
-
-The interface brings multiple capabilities together:
-
-* 🌊 Interactive ocean visualization
-* 🗺️ 3D power/detection map
-* 🤖 AI chatbot interface
-* 🧠 Deep-learning image analysis
-* 🔑 Custom API key integration
-* 📊 Intelligent data interaction
-* 🎨 Futuristic marine-themed UI
-* ⚡ Lightweight frontend architecture
-
-The goal is to create an engaging foundation that can later be connected to real-world ocean datasets, AI models, sensors, APIs, and marine monitoring systems.
+**Ocean AI** is an interactive, web-based intelligence platform designed to combine computer vision, geospatial 3D visualization, and conversational AI into a unified ocean monitoring hub. Built with a lightweight, zero-dependency frontend, it serves as a foundation for connecting real-time marine sensors, oceanographic datasets, and machine learning models.
 
 ---
 
-# 🚀 Key Features
+## 🖼️ Interface Preview
 
-## 🌐 3D Ocean Detection Map
-
-A visually immersive **3D map experience** designed to represent ocean-based detection and power-related information.
-
-It provides the foundation for future integrations such as:
-
-* Marine sensor locations
-* Ocean monitoring stations
-* Detection zones
-* Environmental data
-* Real-time telemetry
-* Geospatial intelligence
+| **🌊 Main Interface** | **🤖 AI / Analysis Interface** |
+| :---: | :---: |
+| <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png" width="400" alt="Main Interface" /> | <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png" width="400" alt="Analysis Interface" /> |
 
 ---
 
-## 🤖 AI Chatbot
+## ✨ Key Features
 
-Interact with an AI-powered conversational interface directly inside the platform.
+* 🌐 **3D Detection Mapping:** Interactive spatial visualization designed for displaying sensor stations, detection telemetry, and regional oceanic metrics.
+* 🤖 **AI Assistant Interface:** Flexible chat component engineered for multi-model backend connectivity and conversational query handling.
+* 🧠 **Deep Learning Analysis:** Computer vision frontend prepared for marine classification pipelines, including species tagging and environmental monitoring.
+* 🔑 **Custom API Integration:** Decoupled architecture allowing seamless endpoint swapping for real-world sensor streams or custom LLMs.
+* 🎨 **Futuristic Marine UI:** Fully responsive, dark-mode-first aesthetic tailored for high-density oceanographic telemetry layout.
 
-The chatbot architecture is designed to support customizable API integration, allowing developers to connect their preferred AI backend.
+---
 
-### Potential Applications
+## 💡 Practical Applications
 
 <p align="center">
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987958/ChatGPT_Image_Aug_29_2026_12_44_30_PM.png">
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987958/ChatGPT_Image_Aug_29_2026_12_44_30_PM.png" width="700" alt="Ocean AI Applications" />
 </p>
 
-
-## 🧠 Deep Learning Image Analysis
-
-Ocean AI includes an interface for **AI-based image analysis**, opening the door for computer vision applications in marine environments.
-
-Potential future applications include:
-
-* 🐠 Marine species identification
-* 🗑️ Ocean waste detection
-* 🪸 Coral monitoring
-* 🛢️ Oil-spill detection
-* 🚢 Vessel identification
-* 🌊 Underwater object detection
+* 🐠 **Marine Species Identification:** Automated classification of aquatic life from underwater camera feeds.
+* 🗑️ **Waste & Pollution Tracking:** Real-time identification of floating debris, microplastics, and offshore spills.
+* 🪸 **Coral Reef Health Assessment:** Multi-spectral imaging evaluation to detect bleaching events.
+* 🚢 **Vessel & Object Detection:** Maritime situational awareness and illegal fishing activity detection.
 
 ---
 
-## 🔑 Custom API Integration
-
-The project is designed with **customizable API integration** in mind.
-
-Developers can adapt the frontend to communicate with different AI or data services depending on their use case.
-
-> ⚠️ **Security Note:** Never expose private API keys directly in a public frontend repository. For production deployments, use a secure backend or server-side proxy.
-
----
-
-# 🏗️ Project Architecture
+## 🏗️ System Architecture
 
 ```text
-                    🌊 OCEAN AI
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-   🌐 3D Map        🤖 AI Chat       🧠 Image AI
-        │                │                │
-        │                ▼                │
-        │          API Integration        │
-        │                │                │
-        └────────────────┼────────────────┘
-                         ▼
-                🌐 Ocean Intelligence
-```
-
----
-
+                        🌊 OCEAN AI PLATFORM
+                                 │
+        ┌────────────────────────┼────────────────────────┐
+        │                        │                        │
+        ▼                        ▼                        ▼
+  🌐 3D Spatial Map        🤖 AI Chat Engine        🧠 Computer Vision
+        │                        │                        │
+        └────────────────────────┼────────────────────────┘
+                                 │
+                                 ▼
+                     🔑 API Integration Layer
+                                 │
+                                 ▼
+                    🌐 Unified Marine Intelligence
 # 🛠️ Technology Stack
 
 
