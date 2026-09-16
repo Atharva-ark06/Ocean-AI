@@ -171,15 +171,7 @@ The long-term vision is to evolve this prototype into a complete **AI-assisted m
 
 ---
 
-# 🌐 Repository
-```
-GitHub:
-https://github.com/Atharva-ark06/Ocean-AI
-```
-# clone repo 
-```
-git clone https://github.com/Atharva-ark06/Ocean-AI.git
-```
+
 ---
 
 # 👨‍💻 Author
