@@ -77,6 +77,7 @@
                                  │
                                  ▼
                     🌐 Unified Marine Intelligence
+```
 
 The current implementation intentionally keeps the project lightweight and frontend-focused, making it easy to experiment with and extend.
 
@@ -96,15 +97,6 @@ git clone https://github.com/Atharva-ark06/Ocean-AI.git
 cd Ocean-AI
 ```
 
-## 3️⃣ Run the Project
-
-Since this is a frontend HTML project, you can simply open:
-
-```text
-simple.html
-```
-
-in your browser.
 
 ### Recommended
 
