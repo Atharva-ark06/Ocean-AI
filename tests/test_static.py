@@ -17,7 +17,23 @@ class StaticSiteTests(unittest.TestCase):
 
     def test_deploy_workflow_targets_main(self):
         workflow = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
-        self.assertIn("branches: [main]", workflow)
+        self.assertIn('branches: ["main"]', workflow)
+
+    def test_deploy_workflow_has_minimal_permissions(self):
+        workflow = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        self.assertIn("contents: read", workflow)
+        self.assertIn("pages: write", workflow)
+        self.assertIn("id-token: write", workflow)
+
+    def test_deploy_workflow_uses_pages_artifact(self):
+        workflow = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        self.assertIn("actions/upload-pages-artifact@", workflow)
+        self.assertIn("actions/deploy-pages@", workflow)
+
+    def test_deploy_workflow_serializes_deployments(self):
+        workflow = (ROOT / ".github/workflows/pages.yml").read_text(encoding="utf-8")
+        self.assertIn("group: pages", workflow)
+        self.assertIn("cancel-in-progress: false", workflow)
 
 if __name__ == "__main__":
     unittest.main()
