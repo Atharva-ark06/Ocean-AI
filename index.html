@@ -1,0 +1,2774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Guardian AI - Elite Global Plastic Detection Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #0a0e27;
+            --darker: #050816;
+            --light: #f8fafc;
+            --ocean-deep: #001f3f;
+            --ocean-mid: #0066cc;
+            --neon-blue: #00ffff;
+            --neon-pink: #ff00ff;
+            --neon-green: #00ff00;
+            --openai-green: #10a37f;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Canvas Background */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, #001f3f 0%, #000000 100%);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 1.5rem 2rem;
+            animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
+        }
+
+        .title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: rgba(248, 250, 252, 0.7);
+            margin-top: 0.25rem;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 50px;
+            font-weight: 600;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--success);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px) scale(1.05) rotateX(5deg);
+            box-shadow: 
+                0 20px 40px rgba(0, 212, 255, 0.3),
+                0 10px 20px rgba(124, 58, 237, 0.2),
+                0 0 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 15px currentColor);
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(248, 250, 252, 0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .trend-up {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .trend-down {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Enhanced 3D Map Card */
+        .map-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
+
+        .map-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .control-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .control-btn:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .control-btn.active {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .map-viewport {
+            flex: 1;
+            position: relative;
+            perspective: 1000px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--ocean-deep), var(--ocean-mid));
+            cursor: grab;
+        }
+
+        .map-viewport:active {
+            cursor: grabbing;
+        }
+
+        .map-3d-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s linear;
+        }
+
+        #oceanCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .detection-zone-3d {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .zone-marker {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.8), rgba(239, 68, 68, 0.2));
+            border-radius: 50%;
+            animation: markerPulse 2s ease-in-out infinite;
+            box-shadow: 
+                0 0 30px rgba(239, 68, 68, 0.8),
+                0 0 60px rgba(239, 68, 68, 0.4);
+        }
+
+        .zone-pillar {
+            position: absolute;
+            width: 4px;
+            height: 100px;
+            background: linear-gradient(to top, transparent, var(--danger));
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-100%);
+            opacity: 0.6;
+        }
+
+        .zone-label {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            border: 1px solid var(--primary);
+        }
+
+        .map-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid var(--primary);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .coordinates {
+            font-family: 'Space Grotesk', monospace;
+            color: var(--neon-blue);
+            font-size: 0.85rem;
+        }
+
+        /* Detection Feed */
+        .feed-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .feed-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feed-container {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .feed-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .feed-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .feed-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .detection-item {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
+            border-left: 3px solid var(--primary);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            animation: slideInRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .detection-item:hover {
+            transform: translateX(12px) scale(1.02);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .detection-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detection-icon {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .detection-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .detection-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(248, 250, 252, 0.7);
+        }
+
+        .severity-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .severity-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .severity-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--accent);
+        }
+
+        .severity-low {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        /* Prominent AI Chatbot - Full Width */
+        .ai-chat-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ai-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .ai-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ai-subtitle {
+            color: rgba(248, 250, 252, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--success);
+        }
+
+        .connection-status.error {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: var(--danger);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* API Setup - More Prominent */
+        .api-setup {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .api-setup-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .api-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .api-option {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .api-option:hover {
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .api-option.active {
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.15);
+        }
+
+        .api-option-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .api-option-desc {
+            font-size: 0.8rem;
+            color: rgba(248, 250, 252, 0.6);
+        }
+
+        .api-key-section {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .api-key-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--light);
+            font-size: 1rem;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s;
+        }
+
+        .api-key-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .connect-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .connect-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Chat Messages - More Compact */
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            animation: fadeInUp 0.3s ease-out;
+            max-width: 85%;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .message.ai .message-avatar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+
+        .message-content {
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .message.ai .message-content {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            color: rgba(248, 250, 252, 0.4);
+            margin-top: 0.25rem;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 0.4rem;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            border-bottom-left-radius: 4px;
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: typingBounce 1.4s ease-in-out infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        /* Chat Input - Streamlined */
+        .chat-input-area {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 0.75rem 1.25rem;
+            color: var(--light);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        .send-btn {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Quick Actions - More Compact */
+        .quick-questions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-question {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: var(--light);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-question:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .quick-question:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Image Analysis Section */
+        .analysis-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .analysis-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-zone {
+            border: 3px dashed var(--primary);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(124, 58, 237, 0.05));
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-zone:hover {
+            border-width: 4px;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8));
+        }
+
+        .upload-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .upload-subtitle {
+            color: rgba(248, 250, 252, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        .results-section {
+            display: none;
+            margin-top: 2rem;
+        }
+
+        .results-alert {
+            padding: 1rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .thinking-dots {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: thinking 1.4s ease-in-out infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .prediction-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .prediction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .prediction-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .prediction-confidence {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s linear infinite;
+        }
+
+        .deploy-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--success), #059669);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .deploy-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .impact-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .impact-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            font-size: 0.9rem;
+            color: rgba(248, 250, 252, 0.7);
+        }
+
+        .copyright {
+            text-align: center;
+            color: rgba(248, 250, 252, 0.5);
+            font-size: 0.9rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hackathon {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: rgba(10, 14, 39, 0.95);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+            transform: scale(1.1);
+        }
+
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .modal-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .modal-btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .modal-btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+        }
+
+        .modal-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                filter: brightness(1);
+            }
+            50% {
+                filter: brightness(1.3);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(16, 185, 129, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes markerPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(239, 68, 68, 0.8);
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 0 0 30px rgba(239, 68, 68, 1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes thinking {
+            0%, 60%, 100% {
+                transform: scale(0);
+            }
+            30% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* 3D Controls Info */
+        .controls-info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: var(--primary);
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .map-card {
+                height: 400px;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-controls {
+                flex-wrap: wrap;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-title {
+                font-size: 1.5rem;
+            }
+
+            .ai-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .api-options {
+                grid-template-columns: 1fr;
+            }
+
+            .api-key-section {
+                flex-direction: column;
+            }
+
+            .chat-messages {
+                height: 250px;
+            }
+
+            .message {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <span class="logo">🌊</span>
+                <div>
+                    <h1 class="title">Ocean Guardian AI</h1>
+                    <p class="subtitle">Elite Global Plastic Detection Platform</p>
+                </div>
+            </div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>AI LIVE MONITORING</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Statistics Dashboard -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-value" id="detectionCount">2,847</div>
+                <div class="stat-label">AI Detections Today</div>
+                <span class="stat-trend trend-down">↓ 12%</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🗑️</div>
+                <div class="stat-value">15.2 tons</div>
+                <div class="stat-label">Plastic Removed This Week</div>
+                <span class="stat-trend trend-up">↑ 24%</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🚢</div>
+                <div class="stat-value">47</div>
+                <div class="stat-label">Active AI-Guided Vessels</div>
+                <span class="stat-trend trend-up">↑ 8%</span>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌍</div>
+                <div class="stat-value">23</div>
+                <div class="stat-label">AI-Identified Hotspots</div>
+                <span class="stat-trend trend-up">↑ 32%</span>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="main-content">
+            <!-- Enhanced 3D Detection Map -->
+            <div class="map-card">
+                <div class="map-header">
+                    <h2 class="map-title">🗺️ AI-Powered 3D Detection Map</h2>
+                    <div class="map-controls">
+                        <button class="control-btn" onclick="toggleRotation()">🔄 Auto-Rotate</button>
+                        <button class="control-btn" onclick="resetView()">🎯 Reset View</button>
+                        <button class="control-btn" onclick="toggleHeatmap()">🔥 Heatmap</button>
+                    </div>
+                </div>
+                <div class="map-viewport" id="mapViewport">
+                    <div class="map-3d-container" id="map3dContainer">
+                        <canvas id="oceanCanvas"></canvas>
+                        <!-- 3D Detection Zones will be added here -->
+                    </div>
+                    <div class="controls-info">
+                        🖱️ Drag to rotate • Scroll to zoom • Click zones for details
+                    </div>
+                </div>
+                <div class="map-info">
+                    <span>🤖 Real-time 3D AI satellite analysis with 94.7% accuracy</span>
+                    <span class="coordinates" id="coordinates">LAT: 0.0000° | LNG: 0.0000°</span>
+                </div>
+            </div>
+
+            <!-- Detection Feed -->
+            <div class="feed-card">
+                <h2 class="feed-title">🔍 AI Detection Feed</h2>
+                <div class="feed-container" id="feedContainer">
+                    <!-- Detection items will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Prominent AI Chatbot Section -->
+        <div class="ai-chat-section">
+            <div class="chat-header">
+                <div class="ai-info">
+                    <div class="ai-avatar">🤖</div>
+                    <div>
+                        <div class="ai-title">Ocean Guardian AI</div>
+                        <div class="ai-subtitle">Your Ocean Plastic Detection Assistant</div>
+                    </div>
+                </div>
+                <div class="connection-status" id="apiStatus">
+                    <span class="status-dot"></span>
+                    <span id="apiStatusText">Connect API to Start</span>
+                </div>
+            </div>
+            
+            <!-- API Setup - More Prominent -->
+            <div class="api-setup">
+                <div class="api-setup-title">🔗 Choose Your AI Provider</div>
+                <div class="api-options">
+                    <div class="api-option active" onclick="selectProvider('openai', this)">
+                        <div class="api-option-name">OpenAI</div>
+                        <div class="api-option-desc">GPT-4, GPT-3.5 Turbo</div>
+                    </div>
+                    <div class="api-option" onclick="selectProvider('anthropic', this)">
+                        <div class="api-option-name">Anthropic</div>
+                        <div class="api-option-desc">Claude 3, Claude 2</div>
+                    </div>
+                    <div class="api-option" onclick="selectProvider('google', this)">
+                        <div class="api-option-name">Google</div>
+                        <div class="api-option-desc">Gemini Pro, Gemini Flash</div>
+                    </div>
+                    <div class="api-option" onclick="selectProvider('custom', this)">
+                        <div class="api-option-name">Custom API</div>
+                        <div class="api-option-desc">Your own endpoint</div>
+                    </div>
+                </div>
+                <div class="api-key-section">
+                    <input type="password" class="api-key-input" id="apiKeyInput" placeholder="Enter your API key..." />
+                    <button class="connect-btn" onclick="saveApiKey()">Connect AI</button>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    <div class="message-avatar">🤖</div>
+                    <div>
+                        <div class="message-content">
+                            🌊 Hi! I'm your Ocean Guardian AI assistant. I can analyze ocean plastic data, predict pollution patterns, and suggest cleanup strategies.
+                            <br><br>
+                            <strong>Quick Start:</strong><br>
+                            • Add your API key above<br>
+                            • Ask about current conditions<br>
+                            • Get hotspot analysis<br>
+                            • Request cleanup recommendations<br><br>
+                            What would you like to know?
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Add API key to start..." onkeypress="handleChatKeyPress(event)" disabled>
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()" disabled>➤</button>
+            </div>
+            
+            <div class="quick-questions">
+                <button class="quick-question" onclick="quickQuery('analysis')" disabled>📊 Current Status</button>
+                <button class="quick-question" onclick="quickQuery('hotspots')" disabled>🎯 Hotspots</button>
+                <button class="quick-question" onclick="quickQuery('prediction')" disabled>🔮 Predictions</button>
+                <button class="quick-question" onclick="quickQuery('cleanup')" disabled>🚁 Cleanup Plan</button>
+            </div>
+        </div>
+
+        <!-- AI Image Analysis Section -->
+        <div class="analysis-card">
+            <h2 class="analysis-title">📸 Deep Learning Image Analysis</h2>
+            <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+                <div class="upload-icon">📷</div>
+                <div class="upload-title">AI Computer Vision Analysis</div>
+                <div class="upload-subtitle">Upload satellite/drone imagery for instant AI-powered plastic detection</div>
+                <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="handleImageUpload(event)">
+            </div>
+            <div class="results-section" id="resultsSection">
+                <div class="results-alert">
+                    <span>✅ AI Analysis Complete!</span>
+                    <div class="thinking-dots">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="prediction-item">
+                    <div class="prediction-header">
+                        <span class="prediction-label">🧴 Plastic Bottles</span>
+                        <span class="prediction-confidence" id="bottlesConf">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="bottlesProgress"></div>
+                    </div>
+                </div>
+                <div class="prediction-item">
+                    <div class="prediction-header">
+                        <span class="prediction-label">🎣 Ghost Fishing Nets</span>
+                        <span class="prediction-confidence" id="netsConf">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="netsProgress"></div>
+                    </div>
+                </div>
+                <div class="prediction-item">
+                    <div class="prediction-header">
+                        <span class="prediction-label">🛍️ Plastic Bags</span>
+                        <span class="prediction-confidence" id="bagsConf">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="bagsProgress"></div>
+                    </div>
+                </div>
+                <div class="prediction-item">
+                    <div class="prediction-header">
+                        <span class="prediction-label">📦 Industrial Debris</span>
+                        <span class="prediction-confidence" id="debrisConf">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="debrisProgress"></div>
+                    </div>
+                </div>
+                <button class="deploy-btn" onclick="dispatchCleanup()">🚁 Deploy AI Cleanup Drones</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <h2 class="footer-title">🌊 Global AI Impact Statistics</h2>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-value" data-target="1247">0</div>
+                <div class="impact-label">Tons Plastic Removed</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-value" data-target="5">0</div>
+                <div class="impact-label">Oceans Monitored 24/7</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-value" data-target="12483">0</div>
+                <div class="impact-label">AI-Coordinated Volunteers</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-value" data-target="94">0</div>
+                <div class="impact-label">Countries Connected</div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 Ocean Guardian AI | Powered by Advanced AI, Computer Vision & Deep Learning | <span class="hackathon">Hack Kshetra 2.0</span>
+        </div>
+    </footer>
+
+    <!-- Modal for zone details and cleanup deployment -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Title</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                Content
+            </div>
+            <div class="modal-footer" id="modalFooter">
+                <button class="modal-btn modal-btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Performance optimization - detect device capabilities
+        const PerformanceOptimizer = {
+            isLowPerfDevice: false,
+            animationSettings: {
+                particleCount: 100,
+                animationDuration: 1,
+                waveCount: 5
+            },
+            
+            init() {
+                // Simple device performance detection
+                this.isLowPerfDevice = 
+                    navigator.hardwareConcurrency <= 4 || 
+                    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
+                if (this.isLowPerfDevice) {
+                    this.animationSettings = {
+                        particleCount: 50,
+                        animationDuration: 0.5,
+                        waveCount: 3
+                    };
+                }
+                
+                return this.animationSettings;
+            }
+        };
+
+        // Initialize performance settings
+        const perfSettings = PerformanceOptimizer.init();
+
+        // API Configuration
+        let API_KEY = "";
+        let API_PROVIDER = "openai";
+        let API_ENDPOINT = "";
+
+        // API Endpoints
+        const API_ENDPOINTS = {
+            openai: "https://api.openai.com/v1/chat/completions",
+            anthropic: "https://api.anthropic.com/v1/messages",
+            google: "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
+            custom: ""
+        };
+
+        // Local storage for API keys
+        const StorageManager = {
+            getApiKey(provider) {
+                return localStorage.getItem(`${provider}_api_key`) || "";
+            },
+            
+            setApiKey(provider, key) {
+                localStorage.setItem(`${provider}_api_key`, key);
+            },
+            
+            clearApiKey(provider) {
+                localStorage.removeItem(`${provider}_api_key`);
+            }
+        };
+
+        // Modal Manager
+        const ModalManager = {
+            modal: null,
+            
+            init() {
+                this.modal = document.getElementById('modal');
+                
+                // Close modal when clicking outside
+                this.modal.addEventListener('click', (e) => {
+                    if (e.target === this.modal) {
+                        this.close();
+                    }
+                });
+                
+                // Close modal with Escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                        this.close();
+                    }
+                });
+            },
+            
+            open(title, body, footer = null) {
+                document.getElementById('modalTitle').textContent = title;
+                document.getElementById('modalBody').innerHTML = body;
+                
+                if (footer) {
+                    document.getElementById('modalFooter').innerHTML = footer;
+                } else {
+                    document.getElementById('modalFooter').innerHTML = `
+                        <button class="modal-btn modal-btn-primary" onclick="ModalManager.close()">Close</button>
+                    `;
+                }
+                
+                this.modal.classList.add('active');
+            },
+            
+            close() {
+                this.modal.classList.remove('active');
+            }
+        };
+
+        // Particle System with performance optimization
+        class ParticleSystem {
+            constructor() {
+                this.canvas = document.getElementById('particleCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.particles = [];
+                this.particleCount = perfSettings.particleCount;
+                this.connectionDistance = 100;
+                this.animationFrameId = null;
+                
+                this.resize();
+                this.init();
+                this.animate();
+                
+                window.addEventListener('resize', () => this.resize());
+                
+                // Cleanup on page unload
+                window.addEventListener('beforeunload', () => {
+                    if (this.animationFrameId) {
+                        cancelAnimationFrame(this.animationFrameId);
+                    }
+                });
+            }
+            
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+            
+            init() {
+                for (let i = 0; i < this.particleCount; i++) {
+                    this.particles.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        speedX: (Math.random() - 0.5) * 0.5,
+                        speedY: (Math.random() - 0.5) * 0.5,
+                        size: Math.random() * 3 + 1,
+                        opacity: Math.random() * 0.5 + 0.5
+                    });
+                }
+            }
+            
+            update() {
+                this.particles.forEach(particle => {
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+                    
+                    if (particle.x < 0) particle.x = this.canvas.width;
+                    if (particle.x > this.canvas.width) particle.x = 0;
+                    if (particle.y < 0) particle.y = this.canvas.height;
+                    if (particle.y > this.canvas.height) particle.y = 0;
+                });
+            }
+            
+            draw() {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                // Draw connections
+                this.particles.forEach((p1, i) => {
+                    this.particles.slice(i + 1).forEach(p2 => {
+                        const distance = Math.sqrt(
+                            Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
+                        );
+                        
+                        if (distance < this.connectionDistance) {
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(p1.x, p1.y);
+                            this.ctx.lineTo(p2.x, p2.y);
+                            this.ctx.strokeStyle = `rgba(124, 58, 237, ${0.2 * (1 - distance / this.connectionDistance)})`;
+                            this.ctx.lineWidth = 0.5;
+                            this.ctx.stroke();
+                        }
+                    });
+                });
+                
+                // Draw particles
+                this.particles.forEach(particle => {
+                    this.ctx.beginPath();
+                    this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    this.ctx.fillStyle = `rgba(0, 212, 255, ${particle.opacity})`;
+                    this.ctx.shadowBlur = 10;
+                    this.ctx.shadowColor = '#00d4ff';
+                    this.ctx.fill();
+                });
+            }
+            
+            animate() {
+                this.update();
+                this.draw();
+                this.animationFrameId = requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Enhanced 3D Ocean Map with performance optimization
+        class Ocean3DMap {
+            constructor() {
+                this.container = document.getElementById('map3dContainer');
+                this.canvas = document.getElementById('oceanCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.viewport = document.getElementById('mapViewport');
+                
+                this.rotationX = -20;
+                this.rotationY = 0;
+                this.zoom = 1;
+                this.autoRotate = false;
+                this.heatmapMode = false;
+                
+                this.isDragging = false;
+                this.lastMouseX = 0;
+                this.lastMouseY = 0;
+                
+                this.waves = [];
+                this.detectionZones = [];
+                this.animationFrameId = null;
+                
+                this.init();
+            }
+            
+            init() {
+                this.resize();
+                this.initWaves();
+                this.initDetectionZones();
+                this.setupEventListeners();
+                this.animate();
+                
+                window.addEventListener('resize', () => this.resize());
+                
+                // Cleanup on page unload
+                window.addEventListener('beforeunload', () => {
+                    if (this.animationFrameId) {
+                        cancelAnimationFrame(this.animationFrameId);
+                    }
+                });
+            }
+            
+            resize() {
+                const rect = this.viewport.getBoundingClientRect();
+                this.canvas.width = rect.width;
+                this.canvas.height = rect.height;
+            }
+            
+            initWaves() {
+                const waveCount = perfSettings.waveCount;
+                for (let i = 0; i < waveCount; i++) {
+                    this.waves.push({
+                        amplitude: Math.random() * 20 + 10,
+                        frequency: Math.random() * 0.02 + 0.01,
+                        phase: Math.random() * Math.PI * 2,
+                        speed: Math.random() * 0.02 + 0.01
+                    });
+                }
+            }
+            
+            initDetectionZones() {
+                const zones = [
+                    { x: 20, y: 30, zone: 1, severity: 'high' },
+                    { x: 70, y: 25, zone: 2, severity: 'high' },
+                    { x: 45, y: 60, zone: 3, severity: 'medium' },
+                    { x: 80, y: 70, zone: 4, severity: 'high' },
+                    { x: 30, y: 80, zone: 5, severity: 'low' },
+                    { x: 60, y: 40, zone: 6, severity: 'medium' },
+                    { x: 15, y: 50, zone: 7, severity: 'high' },
+                    { x: 85, y: 45, zone: 8, severity: 'medium' }
+                ];
+                
+                zones.forEach(zone => {
+                    const zoneElement = document.createElement('div');
+                    zoneElement.className = 'detection-zone-3d';
+                    zoneElement.style.left = zone.x + '%';
+                    zoneElement.style.top = zone.y + '%';
+                    zoneElement.innerHTML = `
+                        <div class="zone-marker"></div>
+                        <div class="zone-pillar"></div>
+                        <div class="zone-label">Zone ${zone.zone}</div>
+                    `;
+                    
+                    zoneElement.onclick = () => this.showZoneDetails(zone);
+                    this.container.appendChild(zoneElement);
+                    this.detectionZones.push(zoneElement);
+                });
+            }
+            
+            setupEventListeners() {
+                this.viewport.addEventListener('mousedown', (e) => this.onMouseDown(e));
+                this.viewport.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                this.viewport.addEventListener('mouseup', () => this.onMouseUp());
+                this.viewport.addEventListener('mouseleave', () => this.onMouseUp());
+                this.viewport.addEventListener('wheel', (e) => this.onWheel(e));
+                
+                // Touch events for mobile
+                this.viewport.addEventListener('touchstart', (e) => this.onTouchStart(e));
+                this.viewport.addEventListener('touchmove', (e) => this.onTouchMove(e));
+                this.viewport.addEventListener('touchend', () => this.onMouseUp());
+            }
+            
+            onMouseDown(e) {
+                this.isDragging = true;
+                this.lastMouseX = e.clientX;
+                this.lastMouseY = e.clientY;
+                this.viewport.style.cursor = 'grabbing';
+            }
+            
+            onMouseMove(e) {
+                if (!this.isDragging) return;
+                
+                const deltaX = e.clientX - this.lastMouseX;
+                const deltaY = e.clientY - this.lastMouseY;
+                
+                this.rotationY += deltaX * 0.5;
+                this.rotationX = Math.max(-60, Math.min(60, this.rotationX - deltaY * 0.5));
+                
+                this.lastMouseX = e.clientX;
+                this.lastMouseY = e.clientY;
+                
+                this.updateTransform();
+                this.updateCoordinates(e);
+            }
+            
+            onMouseUp() {
+                this.isDragging = false;
+                this.viewport.style.cursor = 'grab';
+            }
+            
+            onWheel(e) {
+                e.preventDefault();
+                this.zoom = Math.max(0.5, Math.min(2, this.zoom - e.deltaY * 0.001));
+                this.updateTransform();
+            }
+            
+            onTouchStart(e) {
+                if (e.touches.length === 1) {
+                    this.isDragging = true;
+                    this.lastMouseX = e.touches[0].clientX;
+                    this.lastMouseY = e.touches[0].clientY;
+                }
+            }
+            
+            onTouchMove(e) {
+                if (e.touches.length === 1 && this.isDragging) {
+                    const deltaX = e.touches[0].clientX - this.lastMouseX;
+                    const deltaY = e.touches[0].clientY - this.lastMouseY;
+                    
+                    this.rotationY += deltaX * 0.5;
+                    this.rotationX = Math.max(-60, Math.min(60, this.rotationX - deltaY * 0.5));
+                    
+                    this.lastMouseX = e.touches[0].clientX;
+                    this.lastMouseY = e.touches[0].clientY;
+                    
+                    this.updateTransform();
+                }
+            }
+            
+            updateTransform() {
+                this.container.style.transform = `
+                    rotateX(${this.rotationX}deg) 
+                    rotateY(${this.rotationY}deg) 
+                    scale3d(${this.zoom}, ${this.zoom}, ${this.zoom})
+                `;
+            }
+            
+            updateCoordinates(e) {
+                const rect = this.viewport.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width * 180 - 90).toFixed(4);
+                const y = ((e.clientY - rect.top) / rect.height * 90 - 45).toFixed(4);
+                document.getElementById('coordinates').textContent = `LAT: ${y}° | LNG: ${x}°`;
+            }
+            
+            drawOcean() {
+                const { width, height } = this.canvas;
+                this.ctx.clearRect(0, 0, width, height);
+                
+                // Create gradient for ocean depth
+                const gradient = this.ctx.createLinearGradient(0, 0, 0, height);
+                gradient.addColorStop(0, 'rgba(0, 31, 63, 0.8)');
+                gradient.addColorStop(0.5, 'rgba(0, 102, 204, 0.6)');
+                gradient.addColorStop(1, 'rgba(0, 51, 102, 0.9)');
+                
+                this.ctx.fillStyle = gradient;
+                this.ctx.fillRect(0, 0, width, height);
+                
+                // Draw animated waves
+                const time = Date.now() * 0.001;
+                this.ctx.strokeStyle = 'rgba(0, 212, 255, 0.3)';
+                this.ctx.lineWidth = 2;
+                
+                for (let wave of this.waves) {
+                    this.ctx.beginPath();
+                    for (let x = 0; x <= width; x += 5) {
+                        const y = height / 2 + 
+                                 Math.sin(x * wave.frequency + time * wave.speed + wave.phase) * wave.amplitude +
+                                 Math.sin(x * wave.frequency * 2 + time * wave.speed * 1.5) * wave.amplitude * 0.5;
+                        
+                        if (x === 0) {
+                            this.ctx.moveTo(x, y);
+                        } else {
+                            this.ctx.lineTo(x, y);
+                        }
+                    }
+                    this.ctx.stroke();
+                }
+                
+                // Draw heatmap if enabled
+                if (this.heatmapMode) {
+                    this.drawHeatmap();
+                }
+            }
+            
+            drawHeatmap() {
+                const { width, height } = this.canvas;
+                
+                // Create heatmap gradient
+                const heatmapGradient = this.ctx.createRadialGradient(
+                    width / 2, height / 2, 0,
+                    width / 2, height / 2, Math.max(width, height) / 2
+                );
+                heatmapGradient.addColorStop(0, 'rgba(255, 0, 0, 0.3)');
+                heatmapGradient.addColorStop(0.5, 'rgba(255, 255, 0, 0.2)');
+                heatmapGradient.addColorStop(1, 'rgba(0, 255, 0, 0.1)');
+                
+                this.ctx.fillStyle = heatmapGradient;
+                this.ctx.fillRect(0, 0, width, height);
+            }
+            
+            showZoneDetails(zone) {
+                const confidence = (Math.random() * 5 + 95).toFixed(1);
+                const kg = Math.floor(Math.random() * 500) + 100;
+                const area = (Math.random() * 50 + 10).toFixed(1);
+                
+                const body = `
+                    <div style="margin-bottom: 0.5rem;">📍 Severity: ${zone.severity.toUpperCase()}</div>
+                    <div style="margin-bottom: 0.5rem;">📊 Confidence: ${confidence}%</div>
+                    <div style="margin-bottom: 0.5rem;">⚖️ Estimated Plastic: ${kg} kg</div>
+                    <div style="margin-bottom: 0.5rem;">📐 Affected Area: ${area} km²</div>
+                    <div style="margin-bottom: 0.5rem;">🚁 Cleanup Route: Calculated</div>
+                    <div style="margin-bottom: 1rem;">🛰️ Next Scan: ${Math.floor(Math.random() * 4 + 1)} hours</div>
+                    <div style="margin-bottom: 1.5rem;">💡 Recommendation: Deploy 3 cleanup drones immediately. Current ocean currents suggest plastic will spread to Zone ${zone.zone === 8 ? 1 : zone.zone + 1} within 6 hours.</div>
+                `;
+                
+                const footer = `
+                    <button class="modal-btn modal-btn-secondary" onclick="ModalManager.close()">Close</button>
+                    <button class="modal-btn modal-btn-primary" onclick="deployCleanupDrones(${zone.zone})">Deploy Drones</button>
+                `;
+                
+                ModalManager.open(`🌊 Zone ${zone.zone} Analysis`, body, footer);
+            }
+            
+            animate() {
+                this.drawOcean();
+                
+                if (this.autoRotate) {
+                    this.rotationY += 0.2;
+                    this.updateTransform();
+                }
+                
+                this.animationFrameId = requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        // Enhanced AI Chatbot System with better error handling
+        class AIChatBot {
+            constructor() {
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatInput = document.getElementById('chatInput');
+                this.sendBtn = document.getElementById('sendBtn');
+                this.apiStatus = document.getElementById('apiStatus');
+                this.apiStatusText = document.getElementById('apiStatusText');
+                this.isProcessing = false;
+                this.messageHistory = [];
+                
+                this.updateAPIStatus('disconnected');
+                this.loadSavedApiKey();
+            }
+            
+            loadSavedApiKey() {
+                // Try to load saved API key for the default provider
+                const savedKey = StorageManager.getApiKey(API_PROVIDER);
+                if (savedKey) {
+                    document.getElementById('apiKeyInput').value = savedKey;
+                    this.connectAPI();
+                }
+            }
+            
+            updateAPIStatus(status) {
+                if (status === 'connected') {
+                    this.apiStatus.classList.remove('error');
+                    this.apiStatusText.textContent = `${API_PROVIDER.toUpperCase()} Connected`;
+                } else if (status === 'processing') {
+                    this.apiStatus.classList.remove('error');
+                    this.apiStatusText.textContent = 'Processing...';
+                } else if (status === 'error') {
+                    this.apiStatus.classList.add('error');
+                    this.apiStatusText.textContent = 'API Error';
+                } else {
+                    this.apiStatus.classList.remove('error');
+                    this.apiStatusText.textContent = 'Connect API to Start';
+                }
+            }
+            
+            addMessage(content, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+                
+                const time = new Date().toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">${isUser ? '👤' : '🤖'}</div>
+                    <div>
+                        <div class="message-content">${content}</div>
+                        <div class="message-time">${time}</div>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+                
+                // Add to message history
+                this.messageHistory.push({
+                    content,
+                    isUser,
+                    time
+                });
+                
+                // Limit history to last 20 messages
+                if (this.messageHistory.length > 20) {
+                    this.messageHistory.shift();
+                }
+            }
+            
+            showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message ai typing-message';
+                typingDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="typing-indicator">
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                        <span class="typing-dot"></span>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(typingDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+                
+                return typingDiv;
+            }
+            
+            async processMessage(userMessage) {
+                if (this.isProcessing) return;
+                
+                this.isProcessing = true;
+                this.sendBtn.disabled = true;
+                this.updateAPIStatus('processing');
+                
+                // Show typing indicator
+                const typingIndicator = this.showTypingIndicator();
+                
+                try {
+                    // Get current dashboard data for context
+                    const currentData = this.getCurrentDashboardData();
+                    
+                    // Create very concise prompt
+                    const prompt = `Ocean Guardian AI - Be very concise (under 50 words). Current data: ${currentData.detections} detections, ${currentData.plasticRemoved} tons removed, ${currentData.vessels} vessels, ${currentData.hotspots} hotspots. User: ${userMessage}`;
+                    
+                    // Query API
+                    const aiResponse = await queryAPI(prompt);
+                    
+                    // Remove typing indicator
+                    typingIndicator.remove();
+                    
+                    // Add AI response
+                    this.addMessage(aiResponse);
+                    this.updateAPIStatus('connected');
+                    
+                } catch (error) {
+                    console.error('API Error:', error);
+                    
+                    // Remove typing indicator
+                    typingIndicator.remove();
+                    
+                    // Add error message
+                    this.addMessage('❌ Connection error. Check your API key and try again.');
+                    this.updateAPIStatus('error');
+                }
+                
+                this.isProcessing = false;
+                this.sendBtn.disabled = false;
+            }
+            
+            getCurrentDashboardData() {
+                return {
+                    detections: document.getElementById('detectionCount').textContent,
+                    plasticRemoved: '15.2',
+                    vessels: '47',
+                    hotspots: '23'
+                };
+            }
+            
+            connectAPI() {
+                const apiKeyInput = document.getElementById('apiKeyInput');
+                const apiKey = apiKeyInput.value.trim();
+                
+                if (!apiKey) {
+                    this.showNotification('Please enter a valid API key.', 'error');
+                    return false;
+                }
+                
+                API_KEY = apiKey;
+                
+                // Save API key to local storage
+                StorageManager.setApiKey(API_PROVIDER, apiKey);
+                
+                // Enable chat functionality
+                document.getElementById('chatInput').disabled = false;
+                document.getElementById('chatInput').placeholder = 'Ask me about ocean plastic...';
+                document.getElementById('sendBtn').disabled = false;
+                
+                // Enable quick action buttons
+                document.querySelectorAll('.quick-question').forEach(btn => {
+                    btn.disabled = false;
+                });
+                
+                // Update API status
+                this.updateAPIStatus('connected');
+                
+                // Add success message
+                this.addMessage(`✅ Connected to ${API_PROVIDER}! I'm ready to help with ocean plastic analysis.`);
+                
+                return true;
+            }
+            
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 1rem 1.5rem;
+                    background: ${type === 'error' ? 'rgba(239, 68, 68, 0.9)' : 'rgba(16, 185, 129, 0.9)'};
+                    color: white;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                    z-index: 10000;
+                    animation: slideInRight 0.3s ease-out;
+                `;
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 0.3s ease-out';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+        }
+
+        // Query API with better error handling
+        async function queryAPI(prompt) {
+            if (API_PROVIDER === 'openai') {
+                return await queryOpenAI(prompt);
+            } else if (API_PROVIDER === 'anthropic') {
+                return await queryAnthropic(prompt);
+            } else if (API_PROVIDER === 'google') {
+                return await queryGoogle(prompt);
+            } else {
+                return await queryCustom(prompt);
+            }
+        }
+
+        // OpenAI Query with better error handling
+        async function queryOpenAI(prompt) {
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${API_KEY}`
+                },
+                body: JSON.stringify({
+                    model: 'gpt-3.5-turbo',
+                    messages: [
+                        {
+                            role: "system",
+                            content: "You are Ocean Guardian AI, expert in ocean plastic detection. Be very concise."
+                        },
+                        {
+                            role: "user",
+                            content: prompt
+                        }
+                    ],
+                    temperature: 0.7,
+                    max_tokens: 80
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(`OpenAI API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+            }
+            
+            const data = await response.json();
+            return data.choices[0].message.content;
+        }
+
+        // Anthropic Query with better error handling
+        async function queryAnthropic(prompt) {
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': API_KEY,
+                    'anthropic-version': '2023-06-01'
+                },
+                body: JSON.stringify({
+                    model: 'claude-3-haiku-20240307',
+                    max_tokens: 80,
+                    messages: [
+                        {
+                            role: 'user',
+                            content: prompt
+                        }
+                    ]
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(`Anthropic API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+            }
+            
+            const data = await response.json();
+            return data.content[0].text;
+        }
+
+        // Google Gemini Query with better error handling
+        async function queryGoogle(prompt) {
+            const response = await fetch(`${API_ENDPOINT}?key=${API_KEY}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: prompt
+                        }]
+                    }],
+                    generationConfig: {
+                        temperature: 0.7,
+                        topK: 40,
+                        topP: 0.95,
+                        maxOutputTokens: 80
+                    }
+                })
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(`Google API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`);
+            }
+            
+            const data = await response.json();
+            return data.candidates[0].content.parts[0].text;
+        }
+
+        // Custom API Query with better error handling
+        async function queryCustom(prompt) {
+            // Generic API call - user can customize this
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${API_KEY}`
+                },
+                body: JSON.stringify({
+                    prompt: prompt,
+                    max_tokens: 80
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`Custom API error: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            return data.response || data.text || "Response received";
+        }
+
+        // Detection Feed with more realistic data
+        const detectionTypes = [
+            { icon: '🧴', title: 'Plastic Bottles', severity: 'high' },
+            { icon: '🎣', title: 'Ghost Fishing Net', severity: 'high' },
+            { icon: '🛍️', title: 'Plastic Bags', severity: 'medium' },
+            { icon: '📦', title: 'Industrial Debris', severity: 'high' },
+            { icon: '🥤', title: 'Beverage Containers', severity: 'medium' },
+            { icon: '🪣', title: 'Industrial Waste', severity: 'low' }
+        ];
+
+        function generateDetection() {
+            const type = detectionTypes[Math.floor(Math.random() * detectionTypes.length)];
+            const minutesAgo = Math.floor(Math.random() * 45) + 1;
+            const confidence = Math.floor(Math.random() * 10) + 90;
+            const lat = (Math.random() * 180 - 90).toFixed(4);
+            const lng = (Math.random() * 360 - 180).toFixed(4);
+            
+            return {
+                ...type,
+                minutesAgo,
+                confidence,
+                location: `${lat}°, ${lng}°`
+            };
+        }
+
+        function addDetectionToFeed(detection) {
+            const feedContainer = document.getElementById('feedContainer');
+            const detectionItem = document.createElement('div');
+            detectionItem.className = 'detection-item';
+            detectionItem.innerHTML = `
+                <div class="detection-header">
+                    <span class="detection-icon">${detection.icon}</span>
+                    <span class="detection-title">${detection.title}</span>
+                </div>
+                <div class="detection-details">
+                    <span>📍 ${detection.location} • ${detection.minutesAgo} min ago</span>
+                    <span>${detection.confidence}%</span>
+                </div>
+                <div class="detection-details">
+                    <span class="severity-badge severity-${detection.severity}">${detection.severity}</span>
+                </div>
+            `;
+            
+            feedContainer.insertBefore(detectionItem, feedContainer.firstChild);
+            
+            // Keep only 6 items
+            while (feedContainer.children.length > 6) {
+                feedContainer.removeChild(feedContainer.lastChild);
+            }
+        }
+
+        // Initialize feed
+        for (let i = 0; i < 6; i++) {
+            addDetectionToFeed(generateDetection());
+        }
+
+        // Auto-update feed
+        setInterval(() => {
+            addDetectionToFeed(generateDetection());
+            const detectionCount = document.getElementById('detectionCount');
+            const currentCount = parseInt(detectionCount.textContent.replace(',', ''));
+            detectionCount.textContent = (currentCount + 1).toLocaleString();
+        }, 8000);
+
+        // Image Upload Analysis with better UX
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            // Check if file is an image
+            if (!file.type.match('image.*')) {
+                aiChatBot.showNotification('Please select an image file.', 'error');
+                return;
+            }
+            
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.style.display = 'block';
+            
+            // Show file name
+            const fileName = file.name;
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            
+            // Add file info to results
+            const fileInfo = document.createElement('div');
+            fileInfo.style.cssText = `
+                margin-bottom: 1rem;
+                padding: 0.75rem;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                font-size: 0.9rem;
+            `;
+            fileInfo.innerHTML = `
+                <div>📁 File: ${fileName}</div>
+                <div>📏 Size: ${fileSize} MB</div>
+            `;
+            
+            // Insert file info before the results alert
+            const resultsAlert = resultsSection.querySelector('.results-alert');
+            resultsSection.insertBefore(fileInfo, resultsAlert);
+            
+            // Animate predictions
+            setTimeout(() => {
+                const bottlesConf = Math.floor(Math.random() * 16) + 82;
+                animatePrediction('bottles', bottlesConf);
+            }, 400);
+            
+            setTimeout(() => {
+                const netsConf = Math.floor(Math.random() * 26) + 68;
+                animatePrediction('nets', netsConf);
+            }, 800);
+            
+            setTimeout(() => {
+                const bagsConf = Math.floor(Math.random() * 22) + 75;
+                animatePrediction('bags', bagsConf);
+            }, 1200);
+            
+            setTimeout(() => {
+                const debrisConf = Math.floor(Math.random() * 29) + 61;
+                animatePrediction('debris', debrisConf);
+            }, 1600);
+        }
+
+        function animatePrediction(type, confidence) {
+            const progress = document.getElementById(`${type}Progress`);
+            const confText = document.getElementById(`${type}Conf`);
+            
+            progress.style.width = confidence + '%';
+            
+            let current = 0;
+            const increment = confidence / 30;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= confidence) {
+                    current = confidence;
+                    clearInterval(timer);
+                }
+                confText.textContent = Math.floor(current) + '%';
+            }, 33);
+        }
+
+        function dispatchCleanup() {
+            const body = `
+                <div style="margin-bottom: 0.5rem;">✅ 12 Autonomous Drones Dispatched</div>
+                <div style="margin-bottom: 0.5rem;">🛰️ Satellite Tracking: ENABLED</div>
+                <div style="margin-bottom: 0.5rem;">📊 Optimal Path: Calculated (3.2 km)</div>
+                <div style="margin-bottom: 0.5rem;">⏱️ ETA: 47 minutes</div>
+                <div style="margin-bottom: 0.5rem;">🌐 Global Network: Notified</div>
+                <div style="margin-bottom: 1.5rem;">🔗 Blockchain: Upload Complete</div>
+            `;
+            
+            ModalManager.open('🚁 AI Cleanup Deployment Initiated', body);
+        }
+
+        function deployCleanupDrones(zone) {
+            ModalManager.close();
+            
+            const body = `
+                <div style="margin-bottom: 0.5rem;">✅ 3 Autonomous Drones Dispatched to Zone ${zone}</div>
+                <div style="margin-bottom: 0.5rem;">🛰️ Satellite Tracking: ENABLED</div>
+                <div style="margin-bottom: 0.5rem;">📊 Optimal Path: Calculated</div>
+                <div style="margin-bottom: 0.5rem;">⏱️ ETA: 32 minutes</div>
+                <div style="margin-bottom: 1.5rem;">🔗 Blockchain: Upload Complete</div>
+            `;
+            
+            ModalManager.open('🚁 Cleanup Drones Deployed', body);
+        }
+
+        // Impact Stats Animation with better performance
+        function animateStats() {
+            const stats = document.querySelectorAll('.impact-value');
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const duration = 1500;
+                const increment = target / 60;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current).toLocaleString();
+                }, duration / 60);
+            });
+        }
+
+        // Map control functions
+        function toggleRotation() {
+            ocean3DMap.autoRotate = !ocean3DMap.autoRotate;
+            event.target.classList.toggle('active');
+        }
+
+        function resetView() {
+            ocean3DMap.rotationX = -20;
+            ocean3DMap.rotationY = 0;
+            ocean3DMap.zoom = 1;
+            ocean3DMap.updateTransform();
+        }
+
+        function toggleHeatmap() {
+            ocean3DMap.heatmapMode = !ocean3DMap.heatmapMode;
+            event.target.classList.toggle('active');
+        }
+
+        // Provider Selection
+        function selectProvider(provider, element) {
+            API_PROVIDER = provider;
+            API_ENDPOINT = API_ENDPOINTS[provider];
+            
+            // Update UI
+            document.querySelectorAll('.api-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // Try to load saved API key for this provider
+            const savedKey = StorageManager.getApiKey(provider);
+            document.getElementById('apiKeyInput').value = savedKey || "";
+            
+            // Reset API key
+            API_KEY = savedKey || "";
+            
+            // Update status
+            aiChatBot.updateAPIStatus(savedKey ? 'connected' : 'disconnected');
+            
+            // Enable/disable chat based on whether we have a saved key
+            if (savedKey) {
+                document.getElementById('chatInput').disabled = false;
+                document.getElementById('chatInput').placeholder = 'Ask me about ocean plastic...';
+                document.getElementById('sendBtn').disabled = false;
+                
+                // Enable quick action buttons
+                document.querySelectorAll('.quick-question').forEach(btn => {
+                    btn.disabled = false;
+                });
+                
+                // Add message
+                aiChatBot.addMessage(`✅ Connected to ${provider}! I'm ready to help with ocean plastic analysis.`);
+            } else {
+                // Disable chat
+                document.getElementById('chatInput').disabled = true;
+                document.getElementById('chatInput').placeholder = `Enter ${provider} API key...`;
+                document.getElementById('sendBtn').disabled = true;
+                
+                // Disable quick actions
+                document.querySelectorAll('.quick-question').forEach(btn => {
+                    btn.disabled = true;
+                });
+                
+                // Add message
+                aiChatBot.addMessage(`🔄 Switched to ${provider}. Please enter your API key to continue.`);
+            }
+        }
+
+        // Save API Key
+        function saveApiKey() {
+            aiChatBot.connectAPI();
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message && !aiChatBot.isProcessing) {
+                aiChatBot.addMessage(message, true);
+                input.value = '';
+                aiChatBot.processMessage(message);
+            }
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function quickQuery(type) {
+            const queries = {
+                analysis: "What's the current ocean plastic status?",
+                hotspots: "Where are the main plastic hotspots?",
+                prediction: "Predict plastic spread for 48 hours",
+                cleanup: "What's the best cleanup strategy?"
+            };
+            
+            document.getElementById('chatInput').value = queries[type];
+            sendMessage();
+        }
+
+        function addAIMessage(message) {
+            aiChatBot.addMessage(message);
+        }
+
+        function closeModal() {
+            ModalManager.close();
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize components
+            const particleSystem = new ParticleSystem();
+            const ocean3DMap = new Ocean3DMap();
+            const aiChatBot = new AIChatBot();
+            const modalManager = ModalManager.init();
+            
+            // Initialize stats animation
+            animateStats();
+            
+            // Test API connection on load
+            if (API_KEY) {
+                queryAPI("Test connection - respond with 'OK'")
+                    .then(() => console.log('API connected successfully'))
+                    .catch(error => {
+                        console.error('API connection failed:', error);
+                        aiChatBot.updateAPIStatus('error');
+                    });
+            }
+            
+            // Add keyboard navigation for accessibility
+            document.addEventListener('keydown', (e) => {
+                // Tab navigation for map controls
+                if (e.key === 'Tab') {
+                    const mapControls = document.querySelectorAll('.control-btn');
+                    mapControls.forEach(btn => {
+                        btn.setAttribute('tabindex', '0');
+                    });
+                }
+            });
+            
+            // Add ARIA labels for screen readers
+            document.querySelectorAll('.control-btn').forEach(btn => {
+                btn.setAttribute('aria-label', btn.textContent.trim());
+            });
+            
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', `Statistics card: ${card.querySelector('.stat-label').textContent}`);
+            });
+            
+            // Add keyboard event for stat cards
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        card.click();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
