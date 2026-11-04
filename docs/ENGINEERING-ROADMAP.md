@@ -19,3 +19,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Normalize measurement units at the API boundary.
 
 - [ ] Keep raw sensor values separate from transformed display values.
+
+- [ ] Document sensor calibration status and uncertainty.
