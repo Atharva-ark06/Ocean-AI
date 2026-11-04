@@ -87,3 +87,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Apply rate limiting to public endpoints.
 
 - [ ] Document retention and deletion behavior for uploaded images.
+
+- [ ] Add automated accessibility checks to pull requests.
