@@ -13,3 +13,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Show a visible stale-data state when a feed stops updating.
 
 - [ ] Define a stable schema for incoming sensor observations.
+
+- [ ] Validate latitude and longitude ranges before storing observations.
