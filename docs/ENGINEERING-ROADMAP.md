@@ -77,3 +77,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Record model version alongside inference results.
 
 - [ ] Add server-side inference instead of client-only mock logic.
+
+- [ ] Keep provider credentials out of committed source files.
