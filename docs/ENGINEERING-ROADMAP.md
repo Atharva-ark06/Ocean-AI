@@ -89,3 +89,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Document retention and deletion behavior for uploaded images.
 
 - [ ] Add automated accessibility checks to pull requests.
+
+- [ ] Add browser smoke tests for the primary dashboard flow.
