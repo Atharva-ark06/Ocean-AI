@@ -113,3 +113,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Document local testing steps for contributors.
 
 - [ ] Add a check that all referenced local assets exist.
+
+- [ ] Add link validation for repository documentation.
