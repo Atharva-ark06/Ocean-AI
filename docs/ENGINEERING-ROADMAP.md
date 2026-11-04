@@ -51,3 +51,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Provide a text alternative for map information.
 
 - [ ] Test layout at narrow mobile viewport widths.
+
+- [ ] Test dashboard behavior at tablet breakpoints.
