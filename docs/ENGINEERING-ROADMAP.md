@@ -115,3 +115,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add a check that all referenced local assets exist.
 
 - [ ] Add link validation for repository documentation.
+
+- [ ] Document accessibility testing expectations.
