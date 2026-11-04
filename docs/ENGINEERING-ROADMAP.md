@@ -25,3 +25,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add source attribution to map layers and data cards.
 
 - [ ] Add filters by pollution category and severity.
+
+- [ ] Add filters by observation date and time range.
