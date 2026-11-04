@@ -71,3 +71,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Limit image file size before processing.
 
 - [ ] Handle image decoding errors with actionable feedback.
+
+- [ ] Describe confidence values and their limitations.
