@@ -45,3 +45,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add visible focus indicators to interactive elements.
 
 - [ ] Respect prefers-reduced-motion in animation components.
+
+- [ ] Add descriptive labels to canvas-based visualizations.
