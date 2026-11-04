@@ -67,3 +67,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Document the expected image-analysis input formats.
 
 - [ ] Validate image MIME types before previewing uploads.
+
+- [ ] Limit image file size before processing.
