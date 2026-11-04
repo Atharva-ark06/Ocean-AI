@@ -47,3 +47,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Respect prefers-reduced-motion in animation components.
 
 - [ ] Add descriptive labels to canvas-based visualizations.
+
+- [ ] Provide a text alternative for map information.
