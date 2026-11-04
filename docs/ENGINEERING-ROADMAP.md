@@ -79,3 +79,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add server-side inference instead of client-only mock logic.
 
 - [ ] Keep provider credentials out of committed source files.
+
+- [ ] Use a backend proxy for AI API requests in production.
