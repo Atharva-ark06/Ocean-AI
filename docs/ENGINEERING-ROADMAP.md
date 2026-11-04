@@ -91,3 +91,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add automated accessibility checks to pull requests.
 
 - [ ] Add browser smoke tests for the primary dashboard flow.
+
+- [ ] Check external asset availability during scheduled CI.
