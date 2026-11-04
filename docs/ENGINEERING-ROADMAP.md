@@ -83,3 +83,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Use a backend proxy for AI API requests in production.
 
 - [ ] Add authentication and per-user request quotas to APIs.
+
+- [ ] Apply rate limiting to public endpoints.
