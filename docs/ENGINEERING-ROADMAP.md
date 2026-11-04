@@ -33,3 +33,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Provide CSV export for filtered, verified observations.
 
 - [ ] Add pagination or virtualization for large detection feeds.
+
+- [ ] Add clear loading, empty, and error states to data panels.
