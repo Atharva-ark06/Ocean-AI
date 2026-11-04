@@ -81,3 +81,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Keep provider credentials out of committed source files.
 
 - [ ] Use a backend proxy for AI API requests in production.
+
+- [ ] Add authentication and per-user request quotas to APIs.
