@@ -103,3 +103,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Record release notes for user-visible dashboard changes.
 
 - [ ] Add a data dictionary for each dashboard metric.
+
+- [ ] Document how synthetic demo detections are generated.
