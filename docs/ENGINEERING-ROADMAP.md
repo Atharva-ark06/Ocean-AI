@@ -69,3 +69,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Validate image MIME types before previewing uploads.
 
 - [ ] Limit image file size before processing.
+
+- [ ] Handle image decoding errors with actionable feedback.
