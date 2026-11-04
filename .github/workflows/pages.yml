@@ -59,10 +59,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
-          exclude:
-            - .git/**
-            - .github/**
+          path: index.html
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
