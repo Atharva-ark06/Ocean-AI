@@ -1,206 +1,134 @@
-# 🌊 Ocean AI
+# 🌊 Ocean AI — Ocean Guardian Intelligence
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License" />
 </p>
 
-<h3 align="center">🐋 AI-Powered Ocean Intelligence & Marine Monitoring Interface</h3>
+<h3 align="center">AI-assisted marine pollution monitoring and ocean intelligence — in a browser.</h3>
+
+<p align="center"><b>Explore the ocean. Visualize signals. Understand pollution.</b></p>
+
+---
+
+## Overview
+
+**Ocean AI** (Ocean Guardian AI) is a responsive, single-page frontend concept for exploring marine plastic pollution through an interactive dashboard. It combines animated ocean visualization, sample detection feeds, impact metrics, and an optional conversational assistant interface.
+
+The repository currently contains a **static HTML/CSS/JavaScript prototype**. The visual dashboard is designed as an extensible interface; it does not itself provide verified live sensor telemetry, operational drone dispatch, satellite feeds, or a trained inference service.
+
+## Interface preview
 
 <p align="center">
-  <b>Explore the ocean. Visualize intelligence. Detect what matters.</b>
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png" alt="Ocean AI dashboard preview" width="100%" />
 </p>
-
----
-
-## 📌 Overview
-
-**Ocean AI** is an interactive, web-based intelligence platform designed to combine computer vision, geospatial 3D visualization, and conversational AI into a unified ocean monitoring hub. Built with a lightweight, zero-dependency frontend, it serves as a foundation for connecting real-time marine sensors, oceanographic datasets, and machine learning models.
-
----
-
-## 🖼️ Interface Preview
 
 <p align="center">
-  <b>🌊 Main Interface</b><br/>
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987431/Screenshot_2026-08-29_123942.png" width="100%" alt="Main Interface" />
+  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png" alt="Ocean AI analysis and assistant preview" width="100%" />
 </p>
 
-<br/>
+## Features
 
-<p align="center">
-  <b>🤖 AI / Analysis Interface</b><br/>
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png" width="100%" alt="Analysis Interface" />
-</p>
+- **Ocean visualization:** Animated canvas and interactive 3D-style map controls.
+- **Pollution dashboard:** Illustrative metrics and detection cards for marine debris.
+- **Detection feed:** Sample events with categories and severity presentation.
+- **Image analysis UI:** Frontend flow for selecting an image and displaying demo predictions.
+- **AI chat interface:** Provider selection and browser-side API connection flow.
+- **Responsive layout:** Dashboard adapts to desktop and smaller screens.
+- **Static deployment:** No package installation or build step is required to serve the current page.
 
----
+## Technology
 
-## ✨ Key Features
+| Layer | Implementation |
+|---|---|
+| Markup | HTML5 |
+| Styling | Embedded CSS, responsive layouts, animations |
+| Interactivity | Vanilla JavaScript |
+| Visualization | Canvas and CSS 3D transforms |
+| Hosting | GitHub Pages |
+| CI | GitHub Actions |
 
-* 🌐 **3D Detection Mapping:** Interactive spatial visualization designed for displaying sensor stations, detection telemetry, and regional oceanic metrics.
-* 🤖 **AI Assistant Interface:** Flexible chat component engineered for multi-model backend connectivity and conversational query handling.
-* 🧠 **Deep Learning Analysis:** Computer vision frontend prepared for marine classification pipelines, including species tagging and environmental monitoring.
-* 🔑 **Custom API Integration:** Decoupled architecture allowing seamless endpoint swapping for real-world sensor streams or custom LLMs.
-* 🎨 **Futuristic Marine UI:** Fully responsive, dark-mode-first aesthetic tailored for high-density oceanographic telemetry layout.
+## Getting started
 
----
+### Run locally
 
-## 💡 Practical Applications
+1. Clone the repository:
 
-<p align="center">
-  <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987958/ChatGPT_Image_Aug_29_2026_12_44_30_PM.png" width="100%" alt="Ocean AI Applications" />
-</p>
+   ```bash
+   git clone https://github.com/Atharva-ark06/Ocean-AI.git
+   cd Ocean-AI
+   ```
 
-* 🐠 **Marine Species Identification:** Automated classification of aquatic life from underwater camera feeds.
-* 🗑️ **Waste & Pollution Tracking:** Real-time identification of floating debris, microplastics, and offshore spills.
-* 🪸 **Coral Reef Health Assessment:** Multi-spectral imaging evaluation to detect bleaching events.
-* 🚢 **Vessel & Object Detection:** Maritime situational awareness and illegal fishing activity detection.
+2. Open `index.html` directly in a browser, or use VS Code **Live Server** for local development.
 
----
+There is no `npm install` or compilation step in the current static version.
 
-## 🏗️ System Architecture
+### GitHub Pages deployment
+
+The Pages workflow is located at `.github/workflows/pages.yml`.
+
+1. Open **Repository → Settings → Pages**.
+2. Set **Build and deployment → Source** to **GitHub Actions**.
+3. Push to `main` to validate and deploy automatically, or run the workflow manually from **Actions**.
+4. Pull requests run the validation job; deployment is skipped for pull requests.
+
+The workflow checks that `index.html` exists and contains the expected HTML document structure before publishing. It uses the official Pages configure, artifact upload, and deploy actions.
+
+> The deployment workflow publishes the repository's static site. GitHub Pages cannot host a server-side API, model runtime, or secret environment variables.
+
+## AI provider connection and privacy
+
+The assistant UI is a frontend integration point. If you choose to enter a provider API key, treat it as a browser-side prototype: a key used in client-side JavaScript can be exposed to the browser session and its network tools.
+
+- Do not use production, privileged, or long-lived API keys in a public static website.
+- Prefer a backend proxy with server-side secrets, rate limits, and authentication for a production deployment.
+- Review the provider's pricing, usage, and data-retention policies before connecting.
+- Disconnect or revoke test keys after experimentation.
+
+## Project structure
 
 ```text
-                        🌊 OCEAN AI PLATFORM
-                                 │
-        ┌────────────────────────┼────────────────────────┐
-        │                        │                        │
-        ▼                        ▼                        ▼
-  🌐 3D Spatial Map        🤖 AI Chat Engine        🧠 Computer Vision
-        │                        │                        │
-        └────────────────────────┼────────────────────────┘
-                                 │
-                                 ▼
-                     🔑 API Integration Layer
-                                 │
-                                 ▼
-                    🌐 Unified Marine Intelligence
+Ocean-AI/
+├── .github/
+│   └── workflows/
+│       └── pages.yml     # Validate and deploy GitHub Pages
+├── index.html            # Single-page application
+└── README.md              # Project documentation
 ```
 
-The current implementation intentionally keeps the project lightweight and frontend-focused, making it easy to experiment with and extend.
+## Roadmap
+
+- [ ] Replace illustrative metrics with clearly sourced ocean datasets.
+- [ ] Add a documented backend API contract for sensor ingestion.
+- [ ] Connect a verified marine debris classification model.
+- [ ] Add confidence calibration and model limitations to predictions.
+- [ ] Add historical data visualization and export.
+- [ ] Add accessible keyboard controls and reduced-motion support.
+- [ ] Add automated browser-level smoke tests.
+- [ ] Add secure server-side AI provider integration.
+- [ ] Add deployment status and data-source freshness indicators.
+
+## Contributing
+
+Contributions, bug reports, accessibility improvements, and documentation updates are welcome.
+
+1. Fork the repository.
+2. Create a focused branch.
+3. Test the static page locally.
+4. Open a pull request describing the change and its verification.
+
+## License
+
+This project is distributed under the **MIT License**. See [LICENSE](LICENSE) if present in the repository.
+
+## Author
+
+**Atharva Kulkarni**  
+Computer Science & Information Security | AI • Web Development • Cybersecurity
 
 ---
 
-# ⚡ Getting Started
-
-## 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/Atharva-ark06/Ocean-AI.git
-```
-
-## 2️⃣ Enter the Project
-
-```bash
-cd Ocean-AI
-```
-
-
-### Recommended
-
-For the best development experience, open the project using **VS Code** and run it with the **Live Server** extension.
-
----
-
-# 🔮 Future Scope
-
-Ocean AI is designed to be expandable beyond a static frontend concept.
-
-### 🌊 Real-Time Ocean Data
-
-Integrate live marine datasets and APIs to display:
-
-* Temperature
-* Salinity
-* Wave height
-* Ocean currents
-* Weather conditions
-* Marine pollution
-
-### 🤖 Advanced AI
-
-Add specialized AI models for:
-
-* Marine species recognition
-* Underwater object detection
-* Ocean pollution classification
-* Anomaly detection
-* Predictive ocean analytics
-
-### 📡 IoT Integration
-
-Connect real-world ocean sensors and devices for:
-
-```text
-Sensors
-   ↓
-IoT Gateway
-   ↓
-Cloud / API
-   ↓
-Ocean AI
-   ↓
-Visualization + AI Analysis
-```
-
-### 🛰️ Satellite Intelligence
-
-Future versions could incorporate satellite imagery and remote sensing data for large-scale ocean monitoring.
-
-### 📊 Intelligent Dashboard
-
-Transform the interface into a complete marine intelligence dashboard with:
-
-* Real-time charts
-* Interactive maps
-* Detection alerts
-* AI-generated insights
-* Historical analytics
-
----
-
-# 🎯 Vision
-
-> **Build a smarter interface between Artificial Intelligence and the world's oceans.**
-
-Ocean AI explores how modern web technologies and artificial intelligence can be combined to make complex marine information more **visual, interactive, and accessible**.
-
-The long-term vision is to evolve this prototype into a complete **AI-assisted marine intelligence platform**.
-
----
-
-
----
-
-# 👨‍💻 Author
-
-### Atharva Kulkarni
-
-Computer Science & Information Security Student
-Interested in **AI • Cybersecurity • Web Development • Machine Learning • Emerging Technologies**
-
----
-
-## ⭐ Support
-
-If you find this project interesting:
-
-⭐ **Star the repository**
-🍴 **Fork it**
-🐛 **Open an issue**
-💡 **Suggest improvements**
-🤝 **Contribute**
-
----
-
-<div align="center">
-
-### 🌊 Ocean AI
-
-**Where AI meets the ocean.**
-
-Made with ❤️, curiosity & code.
-
-</div>
+<p align="center"><b>🌊 Ocean AI — Where AI meets the ocean.</b></p>
