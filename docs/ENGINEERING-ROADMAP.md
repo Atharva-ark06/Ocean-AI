@@ -53,3 +53,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Test layout at narrow mobile viewport widths.
 
 - [ ] Test dashboard behavior at tablet breakpoints.
+
+- [ ] Prevent decorative animations from blocking interaction.
