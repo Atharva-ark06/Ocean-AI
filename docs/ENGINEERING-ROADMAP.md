@@ -85,3 +85,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add authentication and per-user request quotas to APIs.
 
 - [ ] Apply rate limiting to public endpoints.
+
+- [ ] Document retention and deletion behavior for uploaded images.
