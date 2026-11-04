@@ -95,3 +95,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Check external asset availability during scheduled CI.
 
 - [ ] Pin and review third-party GitHub Actions versions.
+
+- [ ] Document the deployment URL and repository base path.
