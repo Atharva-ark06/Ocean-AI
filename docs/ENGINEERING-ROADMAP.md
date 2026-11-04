@@ -35,3 +35,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add pagination or virtualization for large detection feeds.
 
 - [ ] Add clear loading, empty, and error states to data panels.
+
+- [ ] Ensure color is not the only indicator of severity.
