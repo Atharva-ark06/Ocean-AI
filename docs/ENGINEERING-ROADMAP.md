@@ -17,3 +17,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Validate latitude and longitude ranges before storing observations.
 
 - [ ] Normalize measurement units at the API boundary.
+
+- [ ] Keep raw sensor values separate from transformed display values.
