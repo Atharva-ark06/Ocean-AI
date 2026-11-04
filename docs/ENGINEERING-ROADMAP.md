@@ -99,3 +99,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Document the deployment URL and repository base path.
 
 - [ ] Add a rollback procedure for failed Pages releases.
+
+- [ ] Record release notes for user-visible dashboard changes.
