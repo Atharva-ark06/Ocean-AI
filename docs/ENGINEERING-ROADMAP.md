@@ -15,3 +15,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Define a stable schema for incoming sensor observations.
 
 - [ ] Validate latitude and longitude ranges before storing observations.
+
+- [ ] Normalize measurement units at the API boundary.
