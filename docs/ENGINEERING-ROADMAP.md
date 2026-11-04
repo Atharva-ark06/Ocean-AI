@@ -119,3 +119,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Document accessibility testing expectations.
 
 - [ ] Document accessibility testing expectations.
+
+- [ ] Create a deployment troubleshooting guide for maintainers.
