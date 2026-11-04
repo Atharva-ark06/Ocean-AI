@@ -93,3 +93,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add browser smoke tests for the primary dashboard flow.
 
 - [ ] Check external asset availability during scheduled CI.
+
+- [ ] Pin and review third-party GitHub Actions versions.
