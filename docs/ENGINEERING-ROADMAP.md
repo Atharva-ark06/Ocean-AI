@@ -65,3 +65,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Do not present demo predictions as model validation.
 
 - [ ] Document the expected image-analysis input formats.
+
+- [ ] Validate image MIME types before previewing uploads.
