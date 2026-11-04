@@ -1,0 +1,7 @@
+# Ocean AI — Engineering Roadmap
+
+This checklist tracks potential improvements. Items are proposals until implemented and verified.
+
+## Data quality and provenance
+
+- [ ] Document the provenance and license of every ocean dataset before ingestion.
