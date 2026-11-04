@@ -105,3 +105,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add a data dictionary for each dashboard metric.
 
 - [ ] Document how synthetic demo detections are generated.
+
+- [ ] Define API error response formats for client handling.
