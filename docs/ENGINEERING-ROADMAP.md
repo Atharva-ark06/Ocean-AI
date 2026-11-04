@@ -55,3 +55,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Test dashboard behavior at tablet breakpoints.
 
 - [ ] Prevent decorative animations from blocking interaction.
+
+- [ ] Separate UI rendering from data transformation functions.
