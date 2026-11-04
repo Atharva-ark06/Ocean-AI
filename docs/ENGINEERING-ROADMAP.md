@@ -39,3 +39,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Ensure color is not the only indicator of severity.
 
 - [ ] Review contrast ratios for text and interactive controls.
+
+- [ ] Support keyboard operation for all map controls.
