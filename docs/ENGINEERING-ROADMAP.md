@@ -61,3 +61,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Use deterministic fixtures for repeatable demo scenarios.
 
 - [ ] Label simulated values clearly in the interface.
+
+- [ ] Do not present demo predictions as model validation.
