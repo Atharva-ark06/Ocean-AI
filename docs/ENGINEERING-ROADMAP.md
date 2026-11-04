@@ -63,3 +63,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Label simulated values clearly in the interface.
 
 - [ ] Do not present demo predictions as model validation.
+
+- [ ] Document the expected image-analysis input formats.
