@@ -59,3 +59,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Separate UI rendering from data transformation functions.
 
 - [ ] Use deterministic fixtures for repeatable demo scenarios.
+
+- [ ] Label simulated values clearly in the interface.
