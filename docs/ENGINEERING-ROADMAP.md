@@ -9,3 +9,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 ## Reliability and data handling
 
 - [ ] Display dataset collection timestamps and timezone consistently.
+
+- [ ] Show a visible stale-data state when a feed stops updating.
