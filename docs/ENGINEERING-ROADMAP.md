@@ -75,3 +75,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Describe confidence values and their limitations.
 
 - [ ] Record model version alongside inference results.
+
+- [ ] Add server-side inference instead of client-only mock logic.
