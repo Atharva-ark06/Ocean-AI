@@ -21,3 +21,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Keep raw sensor values separate from transformed display values.
 
 - [ ] Document sensor calibration status and uncertainty.
+
+- [ ] Add source attribution to map layers and data cards.
