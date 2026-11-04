@@ -111,3 +111,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add a changelog convention for versioned releases.
 
 - [ ] Document local testing steps for contributors.
+
+- [ ] Add a check that all referenced local assets exist.
