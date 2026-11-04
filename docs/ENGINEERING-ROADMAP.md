@@ -41,3 +41,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Review contrast ratios for text and interactive controls.
 
 - [ ] Support keyboard operation for all map controls.
+
+- [ ] Add visible focus indicators to interactive elements.
