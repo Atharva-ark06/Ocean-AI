@@ -1,38 +1,68 @@
-name: Deploy Ocean AI to GitHub Pages
+name: Ocean AI — GitHub Pages
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false
+
 jobs:
   validate:
+    name: Validate static site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Validate static files
-        run: python -m unittest discover -s tests -v
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Verify entry point
         run: test -s index.html
+      - name: Check HTML document markers
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path("index.html").read_text(encoding="utf-8")
+          required = ("<!DOCTYPE html>", "<html", "</html>", "<head", "</head>", "<body", "</body>")
+          missing = [marker for marker in required if marker.lower() not in html.lower()]
+          if missing:
+              raise SystemExit(f"index.html is missing required document markers: {missing}")
+          print("Static entry point validation passed.")
+          PY
+      - name: Check for accidental merge markers
+        run: |
+          if grep -nE '^(<<<<<<<|=======|>>>>>>>)' index.html README.md; then
+            echo "Merge-conflict markers detected."
+            exit 1
+          fi
+
   deploy:
+    name: Publish to GitHub Pages
     if: github.event_name != 'pull_request'
     needs: validate
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: index.html
-      - id: deployment
+          path: .
+          exclude:
+            - .git/**
+            - .github/**
+      - name: Deploy Pages
+        id: deployment
         uses: actions/deploy-pages@v4
