@@ -29,3 +29,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add filters by observation date and time range.
 
 - [ ] Allow users to inspect an observation's metadata.
+
+- [ ] Provide CSV export for filtered, verified observations.
