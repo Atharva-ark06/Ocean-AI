@@ -97,3 +97,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Pin and review third-party GitHub Actions versions.
 
 - [ ] Document the deployment URL and repository base path.
+
+- [ ] Add a rollback procedure for failed Pages releases.
