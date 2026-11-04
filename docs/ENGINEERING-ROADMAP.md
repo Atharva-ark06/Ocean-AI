@@ -37,3 +37,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add clear loading, empty, and error states to data panels.
 
 - [ ] Ensure color is not the only indicator of severity.
+
+- [ ] Review contrast ratios for text and interactive controls.
