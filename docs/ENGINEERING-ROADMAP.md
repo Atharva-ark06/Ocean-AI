@@ -49,3 +49,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add descriptive labels to canvas-based visualizations.
 
 - [ ] Provide a text alternative for map information.
+
+- [ ] Test layout at narrow mobile viewport widths.
