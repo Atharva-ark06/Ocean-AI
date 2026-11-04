@@ -31,3 +31,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Allow users to inspect an observation's metadata.
 
 - [ ] Provide CSV export for filtered, verified observations.
+
+- [ ] Add pagination or virtualization for large detection feeds.
