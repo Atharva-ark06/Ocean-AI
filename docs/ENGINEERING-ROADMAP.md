@@ -117,3 +117,5 @@ This checklist tracks potential improvements. Items are proposals until implemen
 - [ ] Add link validation for repository documentation.
 
 - [ ] Document accessibility testing expectations.
+
+- [ ] Document accessibility testing expectations.
