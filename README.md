@@ -14,6 +14,21 @@
 
 ---
 
+
+## Architecture modernization (work in progress)
+
+The active modernization branch adds an **optional read-only FastAPI API** in `backend/`, documented in [backend/README.md](backend/README.md), plus a [versioned architecture plan](docs/ARCHITECTURE-V2.md). The API provides `GET /health`, `GET /api/v1/observations` with bounded pagination and category/severity filters, and `GET /api/v1/summary`. It reads the same synthetic dataset as the static frontend. It is **not deployed by GitHub Pages** and does **not** provide authentication, persistent ingestion, real-world telemetry or operational inference.
+
+A separate original [visual design layer](styles/ocean-modern.css) improves responsive typography, card hover, focus visibility, contrast and reduced-motion behavior without introducing an unreviewed component dependency. The design is informed by contemporary UI patterns; no 21st.dev component source has been copied or represented as installed.
+
+Run backend tests after installing `backend/requirements.txt` and `httpx`:
+
+```bash
+python -m unittest discover -s backend/tests -v
+```
+
+The original static-site tests remain available via `python -m unittest discover -s tests -v`.
+
 ## Overview
 
 **Ocean AI** (Ocean Guardian AI) is a responsive, single-page frontend concept for exploring marine plastic pollution through an interactive dashboard. It combines animated ocean visualization, sample detection feeds, impact metrics, and an optional conversational assistant interface.
