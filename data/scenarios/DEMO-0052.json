@@ -1,0 +1,21 @@
+{
+  "scenario_id": "DEMO-0052",
+  "is_real": false,
+  "purpose": "Coverage for bottles observations at medium severity and safe rendering of synthetic geocoordinates",
+  "validation_targets": [
+    "severity-badge",
+    "coordinate-range",
+    "confidence-display",
+    "demo-only-provenance"
+  ],
+  "observation": {
+    "id": "DEMO-0052",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 91,
+    "minutesAgo": 33,
+    "lat": 42.3,
+    "lng": -27.2,
+    "source": "synthetic-scenario-v1"
+  }
+}
