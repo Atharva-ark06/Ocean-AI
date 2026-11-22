@@ -1,0 +1,21 @@
+{
+  "scenario_id": "DEMO-0135",
+  "is_real": false,
+  "purpose": "Coverage for debris observations at low severity and safe rendering of synthetic geocoordinates",
+  "validation_targets": [
+    "severity-badge",
+    "coordinate-range",
+    "confidence-display",
+    "demo-only-provenance"
+  ],
+  "observation": {
+    "id": "DEMO-0135",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 83,
+    "minutesAgo": 46,
+    "lat": 8.2,
+    "lng": -74.7,
+    "source": "synthetic-scenario-v1"
+  }
+}
