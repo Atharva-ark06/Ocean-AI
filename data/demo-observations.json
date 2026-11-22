@@ -1,0 +1,2002 @@
+[
+  {
+    "id": "DEMO-0001",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 82,
+    "minutesAgo": 12,
+    "lat": -4.9,
+    "lng": -121.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0002",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 66,
+    "minutesAgo": 23,
+    "lat": 32.2,
+    "lng": -74.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0003",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 83,
+    "minutesAgo": 34,
+    "lat": 69.3,
+    "lng": -27.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0004",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 67,
+    "minutesAgo": 45,
+    "lat": -8.6,
+    "lng": 19.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0005",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 84,
+    "minutesAgo": 56,
+    "lat": 28.5,
+    "lng": 66.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0006",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 68,
+    "minutesAgo": 67,
+    "lat": 65.6,
+    "lng": 113.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0007",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 85,
+    "minutesAgo": 78,
+    "lat": -13,
+    "lng": -168.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0008",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 69,
+    "minutesAgo": 89,
+    "lat": 24.1,
+    "lng": -121.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0009",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 86,
+    "minutesAgo": 100,
+    "lat": 61.2,
+    "lng": -74.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0010",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 70,
+    "minutesAgo": 111,
+    "lat": -16.7,
+    "lng": -27,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0011",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 87,
+    "minutesAgo": 122,
+    "lat": 20.4,
+    "lng": 19,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0012",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 71,
+    "minutesAgo": 133,
+    "lat": 57.5,
+    "lng": 66.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0013",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 88,
+    "minutesAgo": 144,
+    "lat": -20.4,
+    "lng": 113.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0014",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 72,
+    "minutesAgo": 155,
+    "lat": 16,
+    "lng": -168.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0015",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 89,
+    "minutesAgo": 166,
+    "lat": 53.1,
+    "lng": -121.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0016",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 73,
+    "minutesAgo": 177,
+    "lat": -24.8,
+    "lng": -74.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0017",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 90,
+    "minutesAgo": 8,
+    "lat": 12.3,
+    "lng": -27.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0018",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 74,
+    "minutesAgo": 19,
+    "lat": 49.4,
+    "lng": 19.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0019",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 91,
+    "minutesAgo": 30,
+    "lat": -28.5,
+    "lng": 66.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0020",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 75,
+    "minutesAgo": 41,
+    "lat": 8.6,
+    "lng": 113.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0021",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 92,
+    "minutesAgo": 52,
+    "lat": 45,
+    "lng": -168,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0022",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 76,
+    "minutesAgo": 63,
+    "lat": -32.9,
+    "lng": -122,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0023",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 93,
+    "minutesAgo": 74,
+    "lat": 4.2,
+    "lng": -74.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0024",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 77,
+    "minutesAgo": 85,
+    "lat": 41.3,
+    "lng": -27.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0025",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 94,
+    "minutesAgo": 96,
+    "lat": -36.6,
+    "lng": 19.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0026",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 78,
+    "minutesAgo": 107,
+    "lat": 0.5,
+    "lng": 66.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0027",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 95,
+    "minutesAgo": 118,
+    "lat": 37.6,
+    "lng": 113.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0028",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 79,
+    "minutesAgo": 129,
+    "lat": -41,
+    "lng": -168.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0029",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 96,
+    "minutesAgo": 140,
+    "lat": -3.9,
+    "lng": -121.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0030",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 80,
+    "minutesAgo": 151,
+    "lat": 33.2,
+    "lng": -74.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0031",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 97,
+    "minutesAgo": 162,
+    "lat": 70.3,
+    "lng": -27.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0032",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 81,
+    "minutesAgo": 173,
+    "lat": -7.6,
+    "lng": 20,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0033",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 65,
+    "minutesAgo": 4,
+    "lat": 29.5,
+    "lng": 66,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0034",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 82,
+    "minutesAgo": 15,
+    "lat": 66.6,
+    "lng": 113.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0035",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 66,
+    "minutesAgo": 26,
+    "lat": -12,
+    "lng": -168.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0036",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 83,
+    "minutesAgo": 37,
+    "lat": 25.1,
+    "lng": -121.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0037",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 67,
+    "minutesAgo": 48,
+    "lat": 62.2,
+    "lng": -74.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0038",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 84,
+    "minutesAgo": 59,
+    "lat": -15.7,
+    "lng": -27.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0039",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 68,
+    "minutesAgo": 70,
+    "lat": 21.4,
+    "lng": 19.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0040",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 85,
+    "minutesAgo": 81,
+    "lat": 58.5,
+    "lng": 66.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0041",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 69,
+    "minutesAgo": 92,
+    "lat": -19.4,
+    "lng": 113.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0042",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 86,
+    "minutesAgo": 103,
+    "lat": 17,
+    "lng": -168.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0043",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 70,
+    "minutesAgo": 114,
+    "lat": 54.1,
+    "lng": -121,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0044",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 87,
+    "minutesAgo": 125,
+    "lat": -23.8,
+    "lng": -75,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0045",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 71,
+    "minutesAgo": 136,
+    "lat": 13.3,
+    "lng": -27.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0046",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 88,
+    "minutesAgo": 147,
+    "lat": 50.4,
+    "lng": 19.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0047",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 72,
+    "minutesAgo": 158,
+    "lat": -27.5,
+    "lng": 66.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0048",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 89,
+    "minutesAgo": 169,
+    "lat": 9.6,
+    "lng": 113.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0049",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 73,
+    "minutesAgo": 180,
+    "lat": 46,
+    "lng": -168.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0050",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 90,
+    "minutesAgo": 11,
+    "lat": -31.9,
+    "lng": -121.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0051",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 74,
+    "minutesAgo": 22,
+    "lat": 5.2,
+    "lng": -74.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0052",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 91,
+    "minutesAgo": 33,
+    "lat": 42.3,
+    "lng": -27.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0053",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 75,
+    "minutesAgo": 44,
+    "lat": -35.6,
+    "lng": 19.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0054",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 92,
+    "minutesAgo": 55,
+    "lat": 1.5,
+    "lng": 67,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0055",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 76,
+    "minutesAgo": 66,
+    "lat": 38.6,
+    "lng": 113,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0056",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 93,
+    "minutesAgo": 77,
+    "lat": -40,
+    "lng": -168.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0057",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 77,
+    "minutesAgo": 88,
+    "lat": -2.9,
+    "lng": -121.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0058",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 94,
+    "minutesAgo": 99,
+    "lat": 34.2,
+    "lng": -74.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0059",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 78,
+    "minutesAgo": 110,
+    "lat": 71.3,
+    "lng": -27.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0060",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 95,
+    "minutesAgo": 121,
+    "lat": -6.6,
+    "lng": 19.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0061",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 79,
+    "minutesAgo": 132,
+    "lat": 30.5,
+    "lng": 66.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0062",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 96,
+    "minutesAgo": 143,
+    "lat": 67.6,
+    "lng": 113.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0063",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 80,
+    "minutesAgo": 154,
+    "lat": -11,
+    "lng": -168.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0064",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 97,
+    "minutesAgo": 165,
+    "lat": 26.1,
+    "lng": -121.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0065",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 81,
+    "minutesAgo": 176,
+    "lat": 63.2,
+    "lng": -74,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0066",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 65,
+    "minutesAgo": 7,
+    "lat": -14.7,
+    "lng": -28,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0067",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 82,
+    "minutesAgo": 18,
+    "lat": 22.4,
+    "lng": 19.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0068",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 66,
+    "minutesAgo": 29,
+    "lat": 59.5,
+    "lng": 66.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0069",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 83,
+    "minutesAgo": 40,
+    "lat": -18.4,
+    "lng": 113.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0070",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 67,
+    "minutesAgo": 51,
+    "lat": 18,
+    "lng": -168.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0071",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 84,
+    "minutesAgo": 62,
+    "lat": 55.1,
+    "lng": -121.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0072",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 68,
+    "minutesAgo": 73,
+    "lat": -22.8,
+    "lng": -74.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0073",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 85,
+    "minutesAgo": 84,
+    "lat": 14.3,
+    "lng": -27.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0074",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 69,
+    "minutesAgo": 95,
+    "lat": 51.4,
+    "lng": 19.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0075",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 86,
+    "minutesAgo": 106,
+    "lat": -26.5,
+    "lng": 66.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0076",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 70,
+    "minutesAgo": 117,
+    "lat": 10.6,
+    "lng": 114,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0077",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 87,
+    "minutesAgo": 128,
+    "lat": 47,
+    "lng": -169,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0078",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 71,
+    "minutesAgo": 139,
+    "lat": -30.9,
+    "lng": -121.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0079",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 88,
+    "minutesAgo": 150,
+    "lat": 6.2,
+    "lng": -74.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0080",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 72,
+    "minutesAgo": 161,
+    "lat": 43.3,
+    "lng": -27.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0081",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 89,
+    "minutesAgo": 172,
+    "lat": -34.6,
+    "lng": 19.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0082",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 73,
+    "minutesAgo": 3,
+    "lat": 2.5,
+    "lng": 66.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0083",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 90,
+    "minutesAgo": 14,
+    "lat": 39.6,
+    "lng": 113.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0084",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 74,
+    "minutesAgo": 25,
+    "lat": -39,
+    "lng": -168.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0085",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 91,
+    "minutesAgo": 36,
+    "lat": -1.9,
+    "lng": -121.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0086",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 75,
+    "minutesAgo": 47,
+    "lat": 35.2,
+    "lng": -74.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0087",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 92,
+    "minutesAgo": 58,
+    "lat": 72.3,
+    "lng": -27,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0088",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 76,
+    "minutesAgo": 69,
+    "lat": -5.6,
+    "lng": 19,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0089",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 93,
+    "minutesAgo": 80,
+    "lat": 31.5,
+    "lng": 66.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0090",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 77,
+    "minutesAgo": 91,
+    "lat": 68.6,
+    "lng": 113.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0091",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 94,
+    "minutesAgo": 102,
+    "lat": -10,
+    "lng": -168.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0092",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 78,
+    "minutesAgo": 113,
+    "lat": 27.1,
+    "lng": -121.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0093",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 95,
+    "minutesAgo": 124,
+    "lat": 64.2,
+    "lng": -74.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0094",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 79,
+    "minutesAgo": 135,
+    "lat": -13.7,
+    "lng": -27.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0095",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 96,
+    "minutesAgo": 146,
+    "lat": 23.4,
+    "lng": 19.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0096",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 80,
+    "minutesAgo": 157,
+    "lat": 60.5,
+    "lng": 66.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0097",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 97,
+    "minutesAgo": 168,
+    "lat": -17.4,
+    "lng": 113.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0098",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 81,
+    "minutesAgo": 179,
+    "lat": 19,
+    "lng": -168,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0099",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 65,
+    "minutesAgo": 10,
+    "lat": 56.1,
+    "lng": -122,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0100",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 82,
+    "minutesAgo": 21,
+    "lat": -21.8,
+    "lng": -74.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0101",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 66,
+    "minutesAgo": 32,
+    "lat": 15.3,
+    "lng": -27.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0102",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 83,
+    "minutesAgo": 43,
+    "lat": 52.4,
+    "lng": 19.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0103",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 67,
+    "minutesAgo": 54,
+    "lat": -25.5,
+    "lng": 66.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0104",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 84,
+    "minutesAgo": 65,
+    "lat": 11.6,
+    "lng": 113.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0105",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 68,
+    "minutesAgo": 76,
+    "lat": 48,
+    "lng": -168.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0106",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 85,
+    "minutesAgo": 87,
+    "lat": -29.9,
+    "lng": -121.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0107",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 69,
+    "minutesAgo": 98,
+    "lat": 7.2,
+    "lng": -74.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0108",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 86,
+    "minutesAgo": 109,
+    "lat": 44.3,
+    "lng": -27.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0109",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 70,
+    "minutesAgo": 120,
+    "lat": -33.6,
+    "lng": 20,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0110",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 87,
+    "minutesAgo": 131,
+    "lat": 3.5,
+    "lng": 66,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0111",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 71,
+    "minutesAgo": 142,
+    "lat": 40.6,
+    "lng": 113.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0112",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 88,
+    "minutesAgo": 153,
+    "lat": -38,
+    "lng": -168.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0113",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 72,
+    "minutesAgo": 164,
+    "lat": -0.9,
+    "lng": -121.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0114",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 89,
+    "minutesAgo": 175,
+    "lat": 36.2,
+    "lng": -74.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0115",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 73,
+    "minutesAgo": 6,
+    "lat": -41.7,
+    "lng": -27.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0116",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 90,
+    "minutesAgo": 17,
+    "lat": -4.6,
+    "lng": 19.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0117",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 74,
+    "minutesAgo": 28,
+    "lat": 32.5,
+    "lng": 66.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0118",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 91,
+    "minutesAgo": 39,
+    "lat": 69.6,
+    "lng": 113.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0119",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 75,
+    "minutesAgo": 50,
+    "lat": -9,
+    "lng": -168.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0120",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 92,
+    "minutesAgo": 61,
+    "lat": 28.1,
+    "lng": -121,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0121",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 76,
+    "minutesAgo": 72,
+    "lat": 65.2,
+    "lng": -75,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0122",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 93,
+    "minutesAgo": 83,
+    "lat": -12.7,
+    "lng": -27.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0123",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 77,
+    "minutesAgo": 94,
+    "lat": 24.4,
+    "lng": 19.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0124",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 94,
+    "minutesAgo": 105,
+    "lat": 61.5,
+    "lng": 66.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0125",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 78,
+    "minutesAgo": 116,
+    "lat": -16.4,
+    "lng": 113.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0126",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 95,
+    "minutesAgo": 127,
+    "lat": 20,
+    "lng": -168.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0127",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 79,
+    "minutesAgo": 138,
+    "lat": 57.1,
+    "lng": -121.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0128",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 96,
+    "minutesAgo": 149,
+    "lat": -20.8,
+    "lng": -74.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0129",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 80,
+    "minutesAgo": 160,
+    "lat": 16.3,
+    "lng": -27.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0130",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 97,
+    "minutesAgo": 171,
+    "lat": 53.4,
+    "lng": 19.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0131",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 81,
+    "minutesAgo": 2,
+    "lat": -24.5,
+    "lng": 67,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0132",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 65,
+    "minutesAgo": 13,
+    "lat": 12.6,
+    "lng": 113,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0133",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 82,
+    "minutesAgo": 24,
+    "lat": 49,
+    "lng": -168.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0134",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 66,
+    "minutesAgo": 35,
+    "lat": -28.9,
+    "lng": -121.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0135",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 83,
+    "minutesAgo": 46,
+    "lat": 8.2,
+    "lng": -74.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0136",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 67,
+    "minutesAgo": 57,
+    "lat": 45.3,
+    "lng": -27.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0137",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 84,
+    "minutesAgo": 68,
+    "lat": -32.6,
+    "lng": 19.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0138",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 68,
+    "minutesAgo": 79,
+    "lat": 4.5,
+    "lng": 66.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0139",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 85,
+    "minutesAgo": 90,
+    "lat": 41.6,
+    "lng": 113.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0140",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 69,
+    "minutesAgo": 101,
+    "lat": -37,
+    "lng": -168.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0141",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 86,
+    "minutesAgo": 112,
+    "lat": 0.1,
+    "lng": -121.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0142",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 70,
+    "minutesAgo": 123,
+    "lat": 37.2,
+    "lng": -74,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0143",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 87,
+    "minutesAgo": 134,
+    "lat": -40.7,
+    "lng": -28,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0144",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 71,
+    "minutesAgo": 145,
+    "lat": -3.6,
+    "lng": 19.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0145",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 88,
+    "minutesAgo": 156,
+    "lat": 33.5,
+    "lng": 66.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0146",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 72,
+    "minutesAgo": 167,
+    "lat": 70.6,
+    "lng": 113.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0147",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 89,
+    "minutesAgo": 178,
+    "lat": -8,
+    "lng": -168.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0148",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 73,
+    "minutesAgo": 9,
+    "lat": 29.1,
+    "lng": -121.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0149",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 90,
+    "minutesAgo": 20,
+    "lat": 66.2,
+    "lng": -74.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0150",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 74,
+    "minutesAgo": 31,
+    "lat": -11.7,
+    "lng": -27.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0151",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 91,
+    "minutesAgo": 42,
+    "lat": 25.4,
+    "lng": 19.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0152",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 75,
+    "minutesAgo": 53,
+    "lat": 62.5,
+    "lng": 66.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0153",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 92,
+    "minutesAgo": 64,
+    "lat": -15.4,
+    "lng": 114,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0154",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 76,
+    "minutesAgo": 75,
+    "lat": 21,
+    "lng": -169,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0155",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 93,
+    "minutesAgo": 86,
+    "lat": 58.1,
+    "lng": -121.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0156",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 77,
+    "minutesAgo": 97,
+    "lat": -19.8,
+    "lng": -74.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0157",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 94,
+    "minutesAgo": 108,
+    "lat": 17.3,
+    "lng": -27.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0158",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 78,
+    "minutesAgo": 119,
+    "lat": 54.4,
+    "lng": 19.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0159",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 95,
+    "minutesAgo": 130,
+    "lat": -23.5,
+    "lng": 66.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0160",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 79,
+    "minutesAgo": 141,
+    "lat": 13.6,
+    "lng": 113.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0161",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 96,
+    "minutesAgo": 152,
+    "lat": 50,
+    "lng": -168.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0162",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 80,
+    "minutesAgo": 163,
+    "lat": -27.9,
+    "lng": -121.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0163",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 97,
+    "minutesAgo": 174,
+    "lat": 9.2,
+    "lng": -74.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0164",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 81,
+    "minutesAgo": 5,
+    "lat": 46.3,
+    "lng": -27,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0165",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 65,
+    "minutesAgo": 16,
+    "lat": -31.6,
+    "lng": 19,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0166",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 82,
+    "minutesAgo": 27,
+    "lat": 5.5,
+    "lng": 66.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0167",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 66,
+    "minutesAgo": 38,
+    "lat": 42.6,
+    "lng": 113.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0168",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 83,
+    "minutesAgo": 49,
+    "lat": -36,
+    "lng": -168.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0169",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 67,
+    "minutesAgo": 60,
+    "lat": 1.1,
+    "lng": -121.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0170",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 84,
+    "minutesAgo": 71,
+    "lat": 38.2,
+    "lng": -74.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0171",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 68,
+    "minutesAgo": 82,
+    "lat": -39.7,
+    "lng": -27.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0172",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 85,
+    "minutesAgo": 93,
+    "lat": -2.6,
+    "lng": 19.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0173",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 69,
+    "minutesAgo": 104,
+    "lat": 34.5,
+    "lng": 66.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0174",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 86,
+    "minutesAgo": 115,
+    "lat": 71.6,
+    "lng": 113.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0175",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 70,
+    "minutesAgo": 126,
+    "lat": -7,
+    "lng": -168,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0176",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 87,
+    "minutesAgo": 137,
+    "lat": 30.1,
+    "lng": -122,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0177",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 71,
+    "minutesAgo": 148,
+    "lat": 67.2,
+    "lng": -74.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0178",
+    "category": "debris",
+    "severity": "low",
+    "confidence": 88,
+    "minutesAgo": 159,
+    "lat": -10.7,
+    "lng": -27.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0179",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 72,
+    "minutesAgo": 170,
+    "lat": 26.4,
+    "lng": 19.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0180",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 89,
+    "minutesAgo": 1,
+    "lat": 63.5,
+    "lng": 66.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0181",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 73,
+    "minutesAgo": 12,
+    "lat": -14.4,
+    "lng": 113.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0182",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 90,
+    "minutesAgo": 23,
+    "lat": 22,
+    "lng": -168.4,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0183",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 74,
+    "minutesAgo": 34,
+    "lat": 59.1,
+    "lng": -121.3,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0184",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 91,
+    "minutesAgo": 45,
+    "lat": -18.8,
+    "lng": -74.2,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0185",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 75,
+    "minutesAgo": 56,
+    "lat": 18.3,
+    "lng": -27.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0186",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 92,
+    "minutesAgo": 67,
+    "lat": 55.4,
+    "lng": 20,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0187",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 76,
+    "minutesAgo": 78,
+    "lat": -22.5,
+    "lng": 66,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0188",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 93,
+    "minutesAgo": 89,
+    "lat": 14.6,
+    "lng": 113.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0189",
+    "category": "nets",
+    "severity": "low",
+    "confidence": 77,
+    "minutesAgo": 100,
+    "lat": 51,
+    "lng": -168.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0190",
+    "category": "bottles",
+    "severity": "high",
+    "confidence": 94,
+    "minutesAgo": 111,
+    "lat": -26.9,
+    "lng": -121.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0191",
+    "category": "debris",
+    "severity": "medium",
+    "confidence": 78,
+    "minutesAgo": 122,
+    "lat": 10.2,
+    "lng": -74.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0192",
+    "category": "bags",
+    "severity": "low",
+    "confidence": 95,
+    "minutesAgo": 133,
+    "lat": 47.3,
+    "lng": -27.5,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0193",
+    "category": "nets",
+    "severity": "high",
+    "confidence": 79,
+    "minutesAgo": 144,
+    "lat": -30.6,
+    "lng": 19.6,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0194",
+    "category": "bottles",
+    "severity": "medium",
+    "confidence": 96,
+    "minutesAgo": 155,
+    "lat": 6.5,
+    "lng": 66.7,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0195",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 80,
+    "minutesAgo": 166,
+    "lat": 43.6,
+    "lng": 113.8,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0196",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 97,
+    "minutesAgo": 177,
+    "lat": -35,
+    "lng": -168.1,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0197",
+    "category": "bags",
+    "severity": "medium",
+    "confidence": 81,
+    "minutesAgo": 8,
+    "lat": 2.1,
+    "lng": -121,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0198",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 65,
+    "minutesAgo": 19,
+    "lat": 39.2,
+    "lng": -75,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0199",
+    "category": "bottles",
+    "severity": "low",
+    "confidence": 82,
+    "minutesAgo": 30,
+    "lat": -38.7,
+    "lng": -27.9,
+    "source": "synthetic-scenario-v1"
+  },
+  {
+    "id": "DEMO-0200",
+    "category": "debris",
+    "severity": "high",
+    "confidence": 66,
+    "minutesAgo": 41,
+    "lat": -1.6,
+    "lng": 19.2,
+    "source": "synthetic-scenario-v1"
+  }
+]
