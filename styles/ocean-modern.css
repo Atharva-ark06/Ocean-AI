@@ -1,0 +1,16 @@
+/* Ocean AI — modern visual system. Original implementation; no third-party component code copied. */
+:root { --oa-glass: rgba(12,27,48,.82); --oa-edge: rgba(112,215,246,.22); --oa-ink: #f3fbff; --oa-glow: #38cafa; }
+body {font-family:Inter,system-ui,sans-serif;letter-spacing:.005em}
+header {background:rgba(5,16,32,.9);border-bottom:1px solid var(--oa-edge);box-shadow:0 12px 40px rgba(0,0,0,.2)}
+.title {font-weight:800;letter-spacing:-.045em}
+.subtitle {font-weight:550;line-height:1.55}
+button, input, select, textarea {font:inherit}
+button {transition:transform .2s ease,box-shadow .2s ease,background .2s ease;cursor:pointer}
+button:hover:not(:disabled) {transform:translateY(-2px)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {outline:3px solid #5eead4;outline-offset:3px}
+.card,.stat-card,.metric-card,.feature-card,.dashboard-card {border:1px solid var(--oa-edge);box-shadow:0 16px 40px rgba(0,0,0,.16);backdrop-filter:blur(12px);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.card:hover,.stat-card:hover,.metric-card:hover,.feature-card:hover,.dashboard-card:hover {transform:translateY(-4px);border-color:rgba(56,202,250,.6);box-shadow:0 20px 52px rgba(0,140,200,.16)}
+h1,h2,h3,h4 {letter-spacing:-.035em;font-weight:800}
+p {line-height:1.7}
+@media(max-width:760px){header{padding:1rem}.header-content{gap:.7rem}.title{font-size:clamp(1.25rem,5vw,1.8rem)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
