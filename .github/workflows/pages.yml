@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Run static regression tests
+        run: python -m unittest discover -s tests -v
       - name: Verify entry point
         run: test -s index.html
       - name: Check HTML document markers
@@ -59,7 +61,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: index.html
+          path: .
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4

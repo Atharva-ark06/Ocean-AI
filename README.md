@@ -30,6 +30,19 @@ The repository currently contains a **static HTML/CSS/JavaScript prototype**. Th
   <img src="https://res.cloudinary.com/wpop4xyo/image/upload/v1787987437/Screenshot_2026-08-29_124009.png" alt="Ocean AI analysis and assistant preview" width="100%" />
 </p>
 
+## Current deployment and data model
+
+**Hosted dashboard:** https://atharva-ark06.github.io/Ocean-AI/
+
+- All cards and the detection feed use a bundled, version-controlled **synthetic dataset** in `data/demo-observations.json` (200 deterministic demo events). This dataset is intentionally **not** measured ocean pollution or a live API. The UI falls back to 12 in-memory sample events when opened without a web server.
+- Use **Shuffle demo feed** to browse more samples. No fictional cleanup activity or simulated prediction is presented as an actual deployment.
+- A persistent light/dark theme preference is available from the top-right toggle; it contains no sensitive values.
+- The hosted GitHub Pages workflow publishes the entire static site so the dashboard's JSON data can load alongside `index.html`.
+- No backend, end-user authentication, secure session manager, secret vault, drone fleet, inference server or live telemetry API is available. Protected actions require a separate authenticated backend and least-privilege authorization.
+- The optional provider UI is an **unsafe for production browser-only API experiment**: pasted tokens remain in volatile tab memory, rather than local storage. Avoid production API keys; any direct browser request can still expose a test token to browser tooling and provider services.
+- File uploads are limited to 5 MiB and checked for PNG/JPEG/GIF/WebP magic bytes; filenames and chat output are rendered as plain text to avoid script injection. Uploaded images are **not** sent to a trained model; outputs are synthetic.
+- For real data, replace bundled records with a documented, validated backend response; do not silently relabel demo events as live observations.
+
 ## Features
 
 - **Ocean visualization:** Animated canvas and interactive 3D-style map controls.
@@ -75,7 +88,7 @@ The Pages workflow is located at `.github/workflows/pages.yml`.
 3. Push to `main` to validate and deploy automatically, or run the workflow manually from **Actions**.
 4. Pull requests run the validation job; deployment is skipped for pull requests.
 
-The workflow checks that `index.html` exists and contains the expected HTML document structure before publishing. It uses the official Pages configure, artifact upload, and deploy actions.
+The workflow runs the Python regression tests, checks HTML structure, and uploads the complete static site including bundled data. It uses the official Pages configure, artifact upload, and deploy actions.
 
 > The deployment workflow publishes the repository's static site. GitHub Pages cannot host a server-side API, model runtime, or secret environment variables.
 
@@ -88,6 +101,10 @@ The assistant UI is a frontend integration point. If you choose to enter a provi
 - Review the provider's pricing, usage, and data-retention policies before connecting.
 - Disconnect or revoke test keys after experimentation.
 
+## Tests and quality gates
+
+Run `python -m unittest discover -s tests -v`. PR validation also checks the bundled dataset, nonpersistent provider keys, safe message rendering, and deployment artifact configuration. Security workflow runs CodeQL on JavaScript. The static site has no third-party package manager dependencies, so `npm audit` is not applicable.
+
 ## Project structure
 
 ```text
@@ -95,6 +112,8 @@ Ocean-AI/
 ├── .github/
 │   └── workflows/
 │       └── pages.yml     # Validate and deploy GitHub Pages
+├── data/demo-observations.json # Deterministic synthetic events
+├── tests/test_static.py  # Security and deployment regression tests
 ├── index.html            # Single-page application
 └── README.md              # Project documentation
 ```

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocean Guardian AI - Elite Global Plastic Detection Platform</title>
+    <title>Ocean Guardian AI | Marine Pollution Demo Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1367,6 +1367,33 @@
                 max-width: 90%;
             }
         }
+
+        /* Accessible, high-contrast visual polish and theme control */
+        .header-tools { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
+        .theme-toggle, .demo-refresh { cursor: pointer; border: 1px solid rgba(0,212,255,.5); border-radius: 12px; background: rgba(0,212,255,.14); color: inherit; font: 700 .9rem/1.4 'Inter',sans-serif; padding: .7rem 1rem; transition: transform .2s, box-shadow .2s, background .2s; }
+        .theme-toggle:hover,.demo-refresh:hover { background: rgba(0,212,255,.25); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,180,220,.2); }
+        :where(button,input,.api-option,.stat-card):focus-visible { outline: 3px solid #fbbf24; outline-offset: 3px; }
+        .demo-banner { display: flex; flex-wrap: wrap; gap: .7rem; align-items: center; margin-bottom: 1.5rem; border: 1px solid rgba(0,212,255,.5); background: rgba(0,75,110,.28); border-radius: 14px; padding: 1rem 1.25rem; font-size: .95rem; line-height: 1.6; font-weight: 550; }
+        .demo-banner strong { font-weight: 800; }
+        .demo-refresh { margin-left: auto; }
+        .api-safety { line-height: 1.6; font-size: .87rem; margin: .25rem 0 1rem; padding: .85rem; border: 1px solid rgba(245,158,11,.48); border-radius: 12px; background: rgba(245,158,11,.09); }
+        .stat-card,.map-card,.feed-card,.ai-chat-section,.analysis-card,.impact-card { border: 1px solid rgba(0,212,255,.35) !important; box-shadow: 0 12px 34px rgba(0,0,0,.15); }
+        .stat-card:hover,.impact-card:hover,.detection-item:hover { transform: translateY(-4px); box-shadow: 0 16px 42px rgba(0,212,255,.18); border-color: rgba(0,212,255,.7) !important; }
+        .stat-value,.impact-value,.map-title,.feed-title,.analysis-title,.ai-title { font-weight: 800 !important; }
+        .stat-label,.impact-label,.detection-title,.message-content { font-weight: 600 !important; line-height: 1.55; }
+        .message-content { white-space: pre-wrap; overflow-wrap: anywhere; }
+        html[data-theme="light"] body { background: linear-gradient(130deg,#e8f6ff,#f8fbff); color: #0c2743; }
+        html[data-theme="light"] #particleCanvas { opacity: .1; }
+        html[data-theme="light"] header { background: rgba(246,251,255,.97); border-bottom-color: #b5dbe8; }
+        html[data-theme="light"] .stat-card, html[data-theme="light"] .map-card, html[data-theme="light"] .feed-card,html[data-theme="light"] .ai-chat-section,html[data-theme="light"] .analysis-card,html[data-theme="light"] .impact-card { background: rgba(255,255,255,.96) !important; color: #0b2a45 !important; }
+        html[data-theme="light"] .demo-banner { color: #0c3450; background: #e1f3fb; }
+        html[data-theme="light"] .theme-toggle, html[data-theme="light"] .demo-refresh { color: #07304a; background: #d3edf8; }
+        html[data-theme="light"] .subtitle,html[data-theme="light"] .stat-label,html[data-theme="light"] .impact-label { color: #345168 !important; }
+        html[data-theme="light"] .api-safety { color: #4b3411; background: #fff6dd; }
+        html[data-theme="light"] .message-content,html[data-theme="light"] .detection-item { color: #153751; }
+        html[data-theme="light"] :is(input,.chat-input,.api-key-input) { color: #122c41; background: #f1f8fd; }
+        @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+        @media (max-width: 640px) { .header-tools { width: 100%; justify-content: space-between; } .container { padding: 1rem; } .demo-refresh { margin-left: 0; } }
     </style>
 </head>
 <body>
@@ -1378,41 +1405,42 @@
                 <span class="logo">🌊</span>
                 <div>
                     <h1 class="title">Ocean Guardian AI</h1>
-                    <p class="subtitle">Elite Global Plastic Detection Platform</p>
+                    <p class="subtitle">Marine intelligence · Interactive demonstration</p>
                 </div>
             </div>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>AI LIVE MONITORING</span>
+            <div class="header-tools">
+                <div class="status-badge"><span class="status-dot"></span><span>DEMO · SYNTHETIC DATA</span></div>
+                <button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false" onclick="toggleTheme()">☀️ Light mode</button>
             </div>
         </div>
     </header>
 
     <div class="container">
+        <div class="demo-banner" role="status"><strong>Illustrative dashboard</strong> — all observations, coordinates, forecasts and cleanup outcomes are synthetic; no live satellites, vessels or drones are connected. <span id="demoSampleCount">Loading demo observations…</span><button type="button" class="demo-refresh" onclick="shuffleDemoFeed()">↻ Shuffle demo feed</button></div>
         <!-- Statistics Dashboard -->
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-icon">🎯</div>
                 <div class="stat-value" id="detectionCount">2,847</div>
-                <div class="stat-label">AI Detections Today</div>
+                <div class="stat-label">Synthetic Demo Observations</div>
                 <span class="stat-trend trend-down">↓ 12%</span>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🗑️</div>
                 <div class="stat-value">15.2 tons</div>
-                <div class="stat-label">Plastic Removed This Week</div>
+                <div class="stat-label">Scenario Plastic Estimate</div>
                 <span class="stat-trend trend-up">↑ 24%</span>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🚢</div>
                 <div class="stat-value">47</div>
-                <div class="stat-label">Active AI-Guided Vessels</div>
+                <div class="stat-label">Illustrative Vessel Count</div>
                 <span class="stat-trend trend-up">↑ 8%</span>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🌍</div>
                 <div class="stat-value">23</div>
-                <div class="stat-label">AI-Identified Hotspots</div>
+                <div class="stat-label">Simulated Hotspots</div>
                 <span class="stat-trend trend-up">↑ 32%</span>
             </div>
         </div>
@@ -1439,14 +1467,14 @@
                     </div>
                 </div>
                 <div class="map-info">
-                    <span>🤖 Real-time 3D AI satellite analysis with 94.7% accuracy</span>
+                    <span>🤖 Illustrative 3D visualization — not a live satellite feed</span>
                     <span class="coordinates" id="coordinates">LAT: 0.0000° | LNG: 0.0000°</span>
                 </div>
             </div>
 
             <!-- Detection Feed -->
             <div class="feed-card">
-                <h2 class="feed-title">🔍 AI Detection Feed</h2>
+                <h2 class="feed-title">🔍 Synthetic Detection Feed</h2>
                 <div class="feed-container" id="feedContainer">
                     <!-- Detection items will be added here -->
                 </div>
@@ -1490,6 +1518,7 @@
                         <div class="api-option-desc">Your own endpoint</div>
                     </div>
                 </div>
+                <p class="api-safety" role="note"><strong>API safety:</strong> No account authentication or secure secret storage is implemented in this static prototype. Keys exist in memory for this tab only; never enter production credentials. For production, use an authenticated backend proxy.</p>
                 <div class="api-key-section">
                     <input type="password" class="api-key-input" id="apiKeyInput" placeholder="Enter your API key..." />
                     <button class="connect-btn" onclick="saveApiKey()">Connect AI</button>
@@ -1501,10 +1530,10 @@
                     <div class="message-avatar">🤖</div>
                     <div>
                         <div class="message-content">
-                            🌊 Hi! I'm your Ocean Guardian AI assistant. I can analyze ocean plastic data, predict pollution patterns, and suggest cleanup strategies.
+                            🌊 Hi! I'm your Ocean Guardian AI assistant. I can discuss synthetic ocean observations and illustrate possible cleanup strategies; these are not real-time measurements.
                             <br><br>
                             <strong>Quick Start:</strong><br>
-                            • Add your API key above<br>
+                            • Optional: use a disposable test API key above<br>
                             • Ask about current conditions<br>
                             • Get hotspot analysis<br>
                             • Request cleanup recommendations<br><br>
@@ -1534,12 +1563,12 @@
             <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
                 <div class="upload-icon">📷</div>
                 <div class="upload-title">AI Computer Vision Analysis</div>
-                <div class="upload-subtitle">Upload satellite/drone imagery for instant AI-powered plastic detection</div>
-                <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="handleImageUpload(event)">
+                <div class="upload-subtitle">Upload a sample image for simulated predictions (not a trained model)</div>
+                <input type="file" id="fileInput" style="display: none;" accept="image/png,image/jpeg,image/webp,image/gif" onchange="handleImageUpload(event)">
             </div>
             <div class="results-section" id="resultsSection">
                 <div class="results-alert">
-                    <span>✅ AI Analysis Complete!</span>
+                    <span>🧪 Simulated Analysis Complete — not an AI inference</span>
                     <div class="thinking-dots">
                         <span class="dot"></span>
                         <span class="dot"></span>
@@ -1582,29 +1611,29 @@
                         <div class="progress-fill" id="debrisProgress"></div>
                     </div>
                 </div>
-                <button class="deploy-btn" onclick="dispatchCleanup()">🚁 Deploy AI Cleanup Drones</button>
+                <button class="deploy-btn" onclick="dispatchCleanup()">🚁 Simulate Cleanup Plan</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <h2 class="footer-title">🌊 Global AI Impact Statistics</h2>
+        <h2 class="footer-title">🌊 Illustrative Scenario Impact</h2>
         <div class="impact-grid">
             <div class="impact-card">
                 <div class="impact-value" data-target="1247">0</div>
-                <div class="impact-label">Tons Plastic Removed</div>
+                <div class="impact-label">Scenario Plastic Volume (tons)</div>
             </div>
             <div class="impact-card">
                 <div class="impact-value" data-target="5">0</div>
-                <div class="impact-label">Oceans Monitored 24/7</div>
+                <div class="impact-label">Sample Ocean Regions</div>
             </div>
             <div class="impact-card">
                 <div class="impact-value" data-target="12483">0</div>
-                <div class="impact-label">AI-Coordinated Volunteers</div>
+                <div class="impact-label">Demo Participant Profiles</div>
             </div>
             <div class="impact-card">
                 <div class="impact-value" data-target="94">0</div>
-                <div class="impact-label">Countries Connected</div>
+                <div class="impact-label">Scenario Countries</div>
             </div>
         </div>
         <div class="copyright">
@@ -1662,30 +1691,55 @@
         // API Configuration
         let API_KEY = "";
         let API_PROVIDER = "openai";
-        let API_ENDPOINT = "";
+        let API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
+        let aiChatBot;
+        let ocean3DMap;
 
         // API Endpoints
         const API_ENDPOINTS = {
             openai: "https://api.openai.com/v1/chat/completions",
             anthropic: "https://api.anthropic.com/v1/messages",
-            google: "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
+            google: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
             custom: ""
         };
 
-        // Local storage for API keys
+        // Keep demo provider credentials in volatile tab memory only.
+        // Remove legacy persisted credentials from earlier releases without reading them.
+        const volatileApiKeys = new Map();
+        for (const provider of ['openai', 'anthropic', 'google', 'custom']) {
+            try { localStorage.removeItem(provider + '_api_key'); } catch (_) { /* unavailable storage */ }
+        }
         const StorageManager = {
-            getApiKey(provider) {
-                return localStorage.getItem(`${provider}_api_key`) || "";
-            },
-            
-            setApiKey(provider, key) {
-                localStorage.setItem(`${provider}_api_key`, key);
-            },
-            
-            clearApiKey(provider) {
-                localStorage.removeItem(`${provider}_api_key`);
-            }
+            getApiKey(provider) { return volatileApiKeys.get(provider) || ''; },
+            setApiKey(provider, key) { volatileApiKeys.set(provider, key); },
+            clearApiKey(provider) { volatileApiKeys.delete(provider); }
         };
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            })[c]);
+        }
+        function toggleTheme() {
+            const root = document.documentElement;
+            const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+            root.dataset.theme = next;
+            const button = document.getElementById('themeToggle');
+            button.textContent = next === 'light' ? '🌙 Dark mode' : '☀️ Light mode';
+            button.setAttribute('aria-pressed', String(next === 'light'));
+            button.setAttribute('aria-label', 'Switch to ' + (next === 'light' ? 'dark' : 'light') + ' theme');
+            try { localStorage.setItem('ocean-ai-theme', next); } catch (_) { /* optional preference */ }
+        }
+        try {
+            if (localStorage.getItem('ocean-ai-theme') === 'light') {
+                document.documentElement.dataset.theme = 'light';
+                document.addEventListener('DOMContentLoaded', () => {
+                    const btn = document.getElementById('themeToggle');
+                    btn.textContent = '🌙 Dark mode';
+                    btn.setAttribute('aria-pressed', 'true');
+                    btn.setAttribute('aria-label', 'Switch to dark theme');
+                });
+            }
+        } catch (_) { /* theme defaults to dark */ }
 
         // Modal Manager
         const ModalManager = {
@@ -2069,7 +2123,7 @@
                 
                 const footer = `
                     <button class="modal-btn modal-btn-secondary" onclick="ModalManager.close()">Close</button>
-                    <button class="modal-btn modal-btn-primary" onclick="deployCleanupDrones(${zone.zone})">Deploy Drones</button>
+                    <button class="modal-btn modal-btn-primary" onclick="deployCleanupDrones(${zone.zone})">Simulate Cleanup</button>
                 `;
                 
                 ModalManager.open(`🌊 Zone ${zone.zone} Analysis`, body, footer);
@@ -2136,13 +2190,19 @@
                     minute: '2-digit' 
                 });
                 
-                messageDiv.innerHTML = `
-                    <div class="message-avatar">${isUser ? '👤' : '🤖'}</div>
-                    <div>
-                        <div class="message-content">${content}</div>
-                        <div class="message-time">${time}</div>
-                    </div>
-                `;
+                // Treat both user messages and model output as plain text to block XSS.
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.textContent = isUser ? '👤' : '🤖';
+                const wrapper = document.createElement('div');
+                const body = document.createElement('div');
+                body.className = 'message-content';
+                body.textContent = String(content);
+                const timestamp = document.createElement('div');
+                timestamp.className = 'message-time';
+                timestamp.textContent = time;
+                wrapper.append(body, timestamp);
+                messageDiv.append(avatar, wrapper);
                 
                 this.chatMessages.appendChild(messageDiv);
                 this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
@@ -2240,7 +2300,7 @@
                 
                 API_KEY = apiKey;
                 
-                // Save API key to local storage
+                // Retain API key in tab memory only (never persistent storage)
                 StorageManager.setApiKey(API_PROVIDER, apiKey);
                 
                 // Enable chat functionality
@@ -2257,7 +2317,7 @@
                 this.updateAPIStatus('connected');
                 
                 // Add success message
-                this.addMessage(`✅ Connected to ${API_PROVIDER}! I'm ready to help with ocean plastic analysis.`);
+                this.addMessage(`✅ ${API_PROVIDER} configured for this tab. Avoid production keys in a public frontend.`);
                 
                 return true;
             }
@@ -2309,7 +2369,7 @@
                     'Authorization': `Bearer ${API_KEY}`
                 },
                 body: JSON.stringify({
-                    model: 'gpt-3.5-turbo',
+                    model: 'gpt-4o-mini',
                     messages: [
                         {
                             role: "system",
@@ -2449,15 +2509,15 @@
             detectionItem.className = 'detection-item';
             detectionItem.innerHTML = `
                 <div class="detection-header">
-                    <span class="detection-icon">${detection.icon}</span>
-                    <span class="detection-title">${detection.title}</span>
+                    <span class="detection-icon">${escapeHTML(detection.icon)}</span>
+                    <span class="detection-title">${escapeHTML(detection.title)}</span>
                 </div>
                 <div class="detection-details">
-                    <span>📍 ${detection.location} • ${detection.minutesAgo} min ago</span>
-                    <span>${detection.confidence}%</span>
+                    <span>📍 ${escapeHTML(detection.location)} • ${Number(detection.minutesAgo)} min ago</span>
+                    <span>${Number(detection.confidence)}%</span>
                 </div>
                 <div class="detection-details">
-                    <span class="severity-badge severity-${detection.severity}">${detection.severity}</span>
+                    <span class="severity-badge severity-${escapeHTML(detection.severity)}">${escapeHTML(detection.severity)}</span>
                 </div>
             `;
             
@@ -2469,27 +2529,90 @@
             }
         }
 
-        // Initialize feed
-        for (let i = 0; i < 6; i++) {
-            addDetectionToFeed(generateDetection());
+        // Hosted dataset integration: GitHub Pages serves the same versioned JSON as the UI.
+        // A fallback remains available for file:// previews or temporary network errors.
+        let demoObservations = [];
+        let demoOffset = 0;
+        function renderDemoFeed() {
+            const feed = document.getElementById('feedContainer');
+            feed.replaceChildren();
+            const types = {
+                bottles: { icon: '🧴', title: 'Plastic Bottles' },
+                nets: { icon: '🎣', title: 'Ghost Fishing Net' },
+                bags: { icon: '🛍️', title: 'Plastic Bags' },
+                debris: { icon: '📦', title: 'Industrial Debris' }
+            };
+            for (let i = 0; i < Math.min(6, demoObservations.length); i++) {
+                const entry = demoObservations[(i + demoOffset) % demoObservations.length];
+                const type = types[entry.category] || types.debris;
+                addDetectionToFeed({
+                    ...type,
+                    severity: ['low', 'medium', 'high'].includes(entry.severity) ? entry.severity : 'medium',
+                    minutesAgo: Number(entry.minutesAgo) || 0,
+                    confidence: Number(entry.confidence) || 0,
+                    location: Number(entry.lat).toFixed(3) + '°, ' + Number(entry.lng).toFixed(3) + '°'
+                });
+            }
+            document.getElementById('detectionCount').textContent = demoObservations.length.toLocaleString();
+            document.getElementById('demoSampleCount').textContent = demoObservations.length + ' bundled demo observations';
+            document.querySelector('.stat-card:nth-child(4) .stat-value').textContent =
+                demoObservations.filter(o => o.severity === 'high').length.toLocaleString();
         }
-
-        // Auto-update feed
-        setInterval(() => {
-            addDetectionToFeed(generateDetection());
-            const detectionCount = document.getElementById('detectionCount');
-            const currentCount = parseInt(detectionCount.textContent.replace(',', ''));
-            detectionCount.textContent = (currentCount + 1).toLocaleString();
-        }, 8000);
+        function shuffleDemoFeed() {
+            if (!demoObservations.length) return;
+            demoOffset = (demoOffset + 6) % demoObservations.length;
+            renderDemoFeed();
+        }
+        async function loadDemoDataset() {
+            try {
+                const response = await fetch('./data/demo-observations.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error('No bundled dataset');
+                const records = await response.json();
+                if (!Array.isArray(records) || !records.length) throw new Error('Empty demo dataset');
+                demoObservations = records.filter(entry =>
+                    entry && ['bottles','nets','bags','debris'].includes(entry.category) &&
+                    Number.isFinite(Number(entry.lat)) && Number.isFinite(Number(entry.lng)) &&
+                    Number(entry.lat) >= -90 && Number(entry.lat) <= 90 &&
+                    Number(entry.lng) >= -180 && Number(entry.lng) <= 180
+                );
+                if (!demoObservations.length) throw new Error('Invalid demo observations');
+            } catch (_) {
+                demoObservations = Array.from({length: 12}, (_, i) => ({
+                    id: 'fallback-' + (i + 1),
+                    category: ['bottles','nets','bags','debris'][i % 4],
+                    severity: ['low','medium','high'][i % 3],
+                    confidence: 70 + (i % 26),
+                    minutesAgo: i * 3 + 1,
+                    lat: 8 + i * 2,
+                    lng: 65 + i * 3
+                }));
+                document.getElementById('demoSampleCount').title = 'Using offline fallback demo observations';
+            }
+            renderDemoFeed();
+        }
+        loadDemoDataset();
 
         // Image Upload Analysis with better UX
-        function handleImageUpload(event) {
+        function magicAt(bytes, offset, pattern) {
+            return pattern.every((value, index) => bytes[offset + index] === value);
+        }
+        async function handleImageUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-            
-            // Check if file is an image
-            if (!file.type.match('image.*')) {
-                aiChatBot.showNotification('Please select an image file.', 'error');
+            if (file.size === 0 || file.size > 5 * 1024 * 1024) {
+                aiChatBot.showNotification('Choose a nonempty image under 5 MB.', 'error');
+                return;
+            }
+            // Validate actual file signatures rather than trusting the MIME label.
+            const bytes = new Uint8Array(await file.slice(0, 16).arrayBuffer());
+            const magic = (values) => values.every((v, i) => bytes[i] === v);
+            const signatureValid =
+                magic([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a]) ||
+                magic([0xff,0xd8,0xff]) ||
+                magic([0x47,0x49,0x46,0x38]) ||
+                (magic([0x52,0x49,0x46,0x46]) && magicAt(bytes, 8, [0x57,0x45,0x42,0x50]));
+            if (!signatureValid) {
+                aiChatBot.showNotification('Unsupported file content. Use a genuine PNG, JPEG, GIF or WebP.', 'error');
                 return;
             }
             
@@ -2509,10 +2632,9 @@
                 border-radius: 10px;
                 font-size: 0.9rem;
             `;
-            fileInfo.innerHTML = `
-                <div>📁 File: ${fileName}</div>
-                <div>📏 Size: ${fileSize} MB</div>
-            `;
+            fileInfo.className = 'demo-upload-detail';
+            fileInfo.textContent = `📁 File: ${fileName} | 📏 Size: ${fileSize} MB | 🧪 Predictions are randomized demo values`;
+            resultsSection.querySelectorAll('.demo-upload-detail').forEach(item => item.remove());
             
             // Insert file info before the results alert
             const resultsAlert = resultsSection.querySelector('.results-alert');
@@ -2560,29 +2682,29 @@
 
         function dispatchCleanup() {
             const body = `
-                <div style="margin-bottom: 0.5rem;">✅ 12 Autonomous Drones Dispatched</div>
-                <div style="margin-bottom: 0.5rem;">🛰️ Satellite Tracking: ENABLED</div>
+                <div style="margin-bottom: 0.5rem;">🧪 Scenario: 12 hypothetical drones</div>
+                <div style="margin-bottom: 0.5rem;">🛰️ Satellite Tracking: NOT CONNECTED</div>
                 <div style="margin-bottom: 0.5rem;">📊 Optimal Path: Calculated (3.2 km)</div>
                 <div style="margin-bottom: 0.5rem;">⏱️ ETA: 47 minutes</div>
-                <div style="margin-bottom: 0.5rem;">🌐 Global Network: Notified</div>
-                <div style="margin-bottom: 1.5rem;">🔗 Blockchain: Upload Complete</div>
+                <div style="margin-bottom: 0.5rem;">🌐 Global Network: NOT CONNECTED</div>
+                <div style="margin-bottom: 1.5rem;">🔗 Blockchain: NOT CONNECTED</div>
             `;
             
-            ModalManager.open('🚁 AI Cleanup Deployment Initiated', body);
+            ModalManager.open('🚁 SIMULATED Cleanup Plan — No Drones Dispatched', body);
         }
 
         function deployCleanupDrones(zone) {
             ModalManager.close();
             
             const body = `
-                <div style="margin-bottom: 0.5rem;">✅ 3 Autonomous Drones Dispatched to Zone ${zone}</div>
-                <div style="margin-bottom: 0.5rem;">🛰️ Satellite Tracking: ENABLED</div>
+                <div style="margin-bottom: 0.5rem;">🧪 Scenario: 3 hypothetical drones to Zone ${zone}</div>
+                <div style="margin-bottom: 0.5rem;">🛰️ Satellite Tracking: NOT CONNECTED</div>
                 <div style="margin-bottom: 0.5rem;">📊 Optimal Path: Calculated</div>
                 <div style="margin-bottom: 0.5rem;">⏱️ ETA: 32 minutes</div>
-                <div style="margin-bottom: 1.5rem;">🔗 Blockchain: Upload Complete</div>
+                <div style="margin-bottom: 1.5rem;">🔗 Blockchain: NOT CONNECTED</div>
             `;
             
-            ModalManager.open('🚁 Cleanup Drones Deployed', body);
+            ModalManager.open('🚁 SIMULATED Cleanup Zone — No Drones Dispatched', body);
         }
 
         // Impact Stats Animation with better performance
@@ -2609,7 +2731,7 @@
         // Map control functions
         function toggleRotation() {
             ocean3DMap.autoRotate = !ocean3DMap.autoRotate;
-            event.target.classList.toggle('active');
+            document.querySelectorAll('.control-btn')[0].classList.toggle('active');
         }
 
         function resetView() {
@@ -2621,7 +2743,7 @@
 
         function toggleHeatmap() {
             ocean3DMap.heatmapMode = !ocean3DMap.heatmapMode;
-            event.target.classList.toggle('active');
+            document.querySelectorAll('.control-btn')[2].classList.toggle('active');
         }
 
         // Provider Selection
@@ -2721,8 +2843,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Initialize components
             const particleSystem = new ParticleSystem();
-            const ocean3DMap = new Ocean3DMap();
-            const aiChatBot = new AIChatBot();
+            ocean3DMap = new Ocean3DMap();
+            aiChatBot = new AIChatBot();
             const modalManager = ModalManager.init();
             
             // Initialize stats animation
