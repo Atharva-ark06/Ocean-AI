@@ -20,6 +20,13 @@ class StaticSiteTests(unittest.TestCase):
         records = json.loads((ROOT / "data/demo-observations.json").read_text(encoding="utf-8"))
         self.assertGreaterEqual(len(records), 200)
         self.assertEqual(len({row["id"] for row in records}), len(records))
+        scenario_files = sorted((ROOT / "data/scenarios").glob("*.json"))
+        self.assertEqual(len(scenario_files), len(records))
+        by_id = {record["id"]: record for record in records}
+        for path in scenario_files:
+            fixture = json.loads(path.read_text(encoding="utf-8"))
+            self.assertFalse(fixture["is_real"])
+            self.assertEqual(fixture["observation"], by_id[fixture["scenario_id"]])
         for record in records:
             self.assertIn(record["category"], ("bottles", "nets", "bags", "debris"))
             self.assertIn(record["severity"], ("low", "medium", "high"))
