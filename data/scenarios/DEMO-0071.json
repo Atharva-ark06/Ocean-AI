@@ -1,0 +1,21 @@
+{
+  "scenario_id": "DEMO-0071",
+  "is_real": false,
+  "purpose": "Coverage for bags observations at high severity and safe rendering of synthetic geocoordinates",
+  "validation_targets": [
+    "severity-badge",
+    "coordinate-range",
+    "confidence-display",
+    "demo-only-provenance"
+  ],
+  "observation": {
+    "id": "DEMO-0071",
+    "category": "bags",
+    "severity": "high",
+    "confidence": 84,
+    "minutesAgo": 62,
+    "lat": 55.1,
+    "lng": -121.5,
+    "source": "synthetic-scenario-v1"
+  }
+}
