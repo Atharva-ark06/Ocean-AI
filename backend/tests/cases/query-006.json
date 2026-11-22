@@ -1,0 +1,22 @@
+{
+  "description": "bottles / low at offset 10, page size 13",
+  "params": {
+    "category": "bottles",
+    "severity": "low",
+    "offset": 10,
+    "limit": 13
+  },
+  "expected_total": 20,
+  "expected_ids": [
+    "DEMO-0108",
+    "DEMO-0121",
+    "DEMO-0134",
+    "DEMO-0138",
+    "DEMO-0151",
+    "DEMO-0155",
+    "DEMO-0168",
+    "DEMO-0182",
+    "DEMO-0195",
+    "DEMO-0199"
+  ]
+}

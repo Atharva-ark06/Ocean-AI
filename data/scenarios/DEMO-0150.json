@@ -1,0 +1,21 @@
+{
+  "scenario_id": "DEMO-0150",
+  "is_real": false,
+  "purpose": "Coverage for nets observations at medium severity and safe rendering of synthetic geocoordinates",
+  "validation_targets": [
+    "severity-badge",
+    "coordinate-range",
+    "confidence-display",
+    "demo-only-provenance"
+  ],
+  "observation": {
+    "id": "DEMO-0150",
+    "category": "nets",
+    "severity": "medium",
+    "confidence": 74,
+    "minutesAgo": 31,
+    "lat": -11.7,
+    "lng": -27.3,
+    "source": "synthetic-scenario-v1"
+  }
+}

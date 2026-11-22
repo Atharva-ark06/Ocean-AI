@@ -1,0 +1,17 @@
+{
+  "description": "bottles / medium at offset 3, page size 5",
+  "params": {
+    "category": "bottles",
+    "severity": "medium",
+    "offset": 3,
+    "limit": 5
+  },
+  "expected_total": 21,
+  "expected_ids": [
+    "DEMO-0039",
+    "DEMO-0052",
+    "DEMO-0056",
+    "DEMO-0069",
+    "DEMO-0073"
+  ]
+}
