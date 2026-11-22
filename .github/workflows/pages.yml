@@ -25,6 +25,18 @@ jobs:
         uses: actions/checkout@v4
       - name: Run static regression tests
         run: python -m unittest discover -s tests -v
+      - name: Validate inline JavaScript syntax
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          html = Path("index.html").read_text(encoding="utf-8")
+          scripts = re.findall(r"<script(?:\\s[^>]*)?>([\\s\\S]*?)</script>", html, re.IGNORECASE)
+          if not scripts:
+              raise SystemExit("No inline application JavaScript found")
+          Path("/tmp/ocean-ai-inline.js").write_text("\\n".join(scripts), encoding="utf-8")
+          PY
+          node --check /tmp/ocean-ai-inline.js
       - name: Verify entry point
         run: test -s index.html
       - name: Check HTML document markers
