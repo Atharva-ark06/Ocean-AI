@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-080",
+  "params": {
+    "limit": 8,
+    "offset": 151,
+    "category": "debris",
+    "severity": "medium"
+  },
+  "status": 200,
+  "total": 16,
+  "ids": [],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}
