@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-089",
+  "params": {
+    "limit": 5,
+    "offset": 97,
+    "category": "bottles",
+    "severity": "medium"
+  },
+  "status": 200,
+  "total": 21,
+  "ids": [],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}
