@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-067",
+  "params": {
+    "limit": 19,
+    "offset": 129,
+    "category": "bags",
+    "severity": "low"
+  },
+  "status": 200,
+  "total": 16,
+  "ids": [],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}
