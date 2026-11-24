@@ -25,6 +25,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Run static regression tests
         run: python -m unittest discover -s tests -v
+      - name: Verify demo JSON and style ship with Pages
+        run: |
+          test -s data/demo-observations.json
+          test -s styles/ocean-modern.css
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          items = json.loads(Path("data/demo-observations.json").read_text())
+          assert len(items) == 200
+          assert len({item["id"] for item in items}) == 200
+          assert all(item.get("source") == "synthetic-scenario-v1" for item in items)
+          print("Validated 200 explicitly synthetic observations")
+          PY
       - name: Validate inline JavaScript syntax
         run: |
           python - <<'PY'
