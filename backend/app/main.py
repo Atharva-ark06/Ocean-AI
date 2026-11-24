@@ -26,6 +26,7 @@ class Observation(BaseModel):
     lng: float = Field(ge=-180, le=180)
     confidence: float = Field(ge=0, le=100)
     minutesAgo: int = Field(ge=0, le=1000000)
+    source: Literal["synthetic-scenario-v1"]
     model_config = ConfigDict(extra="forbid")
 
     @model_validator(mode="after")
