@@ -14,3 +14,17 @@ h1,h2,h3,h4 {letter-spacing:-.035em;font-weight:800}
 p {line-height:1.7}
 @media(max-width:760px){header{padding:1rem}.header-content{gap:.7rem}.title{font-size:clamp(1.25rem,5vw,1.8rem)}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* PR 9: reinforce contrast, legibility and accessible interaction. */
+body { font-weight: 500; }
+.stat-card,.map-card,.detection-card,.analysis-card,.chat-card { border-color:rgba(94,234,212,.38); }
+.stat-card { cursor: default; }
+.stat-card:hover { transform:translateY(-4px) !important; box-shadow:0 20px 48px rgba(0,130,185,.22) !important; }
+.stat-label,.subtitle,.detection-details { font-weight:600; }
+.stat-value,.impact-value { font-weight:800; }
+.detection-item { border:1px solid rgba(120,216,247,.24); border-radius:12px; }
+.detection-item:hover { border-color:rgba(94,234,212,.6); box-shadow:0 10px 24px rgba(0,0,0,.16); }
+#demoSampleCount[data-source="fallback"] { color:#fde68a; font-weight:800; }
+#demoSampleCount[data-source="bundled"] { color:#99f6e4; font-weight:800; }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible {outline:3px solid #5eead4;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.stat-card:hover,.detection-item:hover {transform:none!important}}
