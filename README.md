@@ -15,6 +15,14 @@
 ---
 
 
+## November 2026 hardening and release verification
+
+The proposed security/UX follow-up documents its findings in [PR 9 audit](docs/PR9_AUDIT.md), [security review](docs/SECURITY_REVIEW_PR9.md), and [deployment checklist](docs/DEPLOYMENT_CHECKLIST.md). The optional API validates complete observation records, bounds synthetic dataset size, and requires synthetic provenance. The hosted dashboard validates each record and explicitly distinguishes the bundled JSON feed from a small offline fallback. Neither is a live telemetry feed.
+
+**Authentication review:** there are no user accounts, OAuth/Auth0 configuration, authorization roles, protected routes, or secure provider proxy in this static application. These are not silently implemented or claimed. Do not connect privileged provider keys to the browser interface. No npm dependency audit applies because the static site has no npm package manifest; the Python backend dependencies are bounded by major version.
+
+**Release checks:** inspect the Pages validation **and deployment** jobs, then confirm https://atharva-ark06.github.io/Ocean-AI/ renders the 200 synthetic observations. A successful PR validation does not deploy the site or guarantee that the prior Pages publish failure is fixed.
+
 ## Architecture modernization (work in progress)
 
 The active modernization branch adds an **optional read-only FastAPI API** in `backend/`, documented in [backend/README.md](backend/README.md), plus a [versioned architecture plan](docs/ARCHITECTURE-V2.md). The API provides `GET /health`, `GET /api/v1/observations` with bounded pagination and category/severity filters, and `GET /api/v1/summary`. It reads the same synthetic dataset as the static frontend. It is **not deployed by GitHub Pages** and does **not** provide authentication, persistent ingestion, real-world telemetry or operational inference.
