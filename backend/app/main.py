@@ -12,18 +12,27 @@ from typing import Literal
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
+from math import isfinite
 
 ROOT = Path(__file__).resolve().parents[2]
 DATASET = ROOT / "data" / "demo-observations.json"
 
 class Observation(BaseModel):
-    id: str
+    id: str = Field(min_length=1, max_length=64, pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]*$")
     category: Literal["bottles", "nets", "bags", "debris"]
     severity: Literal["low", "medium", "high"]
     lat: float = Field(ge=-90, le=90)
     lng: float = Field(ge=-180, le=180)
-    model_config = {"extra": "allow"}
+    confidence: float = Field(ge=0, le=100)
+    minutesAgo: int = Field(ge=0, le=1000000)
+    model_config = ConfigDict(extra="forbid")
+
+    @model_validator(mode="after")
+    def valid_finite_coordinates(self):
+        if not all(isfinite(value) for value in (self.lat, self.lng, self.confidence)):
+            raise ValueError("Observation coordinates and confidence must be finite")
+        return self
 
 app = FastAPI(title="Ocean AI Demo API", version="0.1.0",
               description="Read-only, explicitly synthetic ocean observations")
@@ -35,7 +44,13 @@ if origins:
 def load_observations() -> list[Observation]:
     """Validate source records before returning them to clients."""
     records = json.loads(DATASET.read_text(encoding="utf-8"))
-    return [Observation.model_validate(record) for record in records]
+    if not isinstance(records, list) or len(records) > 10000:
+        raise ValueError("Invalid synthetic dataset size")
+    validated = [Observation.model_validate(record) for record in records]
+    ids = [row.id for row in validated]
+    if len(ids) != len(set(ids)):
+        raise ValueError("Duplicate observation identifiers")
+    return validated
 
 @app.get("/health")
 def health() -> dict[str, str]:
@@ -50,7 +65,7 @@ def observations(
 ) -> dict:
     try:
         rows = load_observations()
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, TypeError) as exc:
         raise HTTPException(status_code=503, detail="Dataset unavailable") from exc
     if severity:
         rows = [row for row in rows if row.severity == severity]
