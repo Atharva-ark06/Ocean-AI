@@ -2555,7 +2555,7 @@
                 });
             }
             document.getElementById('detectionCount').textContent = demoObservations.length.toLocaleString();
-            document.getElementById('demoSampleCount').textContent = demoObservations.length + ' bundled demo observations';
+            document.getElementById('demoSampleCount').textContent = demoObservations.length + (document.getElementById('demoSampleCount').dataset.source === 'fallback' ? ' offline fallback examples (dataset unavailable)' : ' bundled demo observations');
             document.querySelector('.stat-card:nth-child(4) .stat-value').textContent =
                 demoObservations.filter(o => o.severity === 'high').length.toLocaleString();
         }
@@ -2571,12 +2571,25 @@
                 const records = await response.json();
                 if (!Array.isArray(records) || !records.length) throw new Error('Empty demo dataset');
                 demoObservations = records.filter(entry =>
-                    entry && ['bottles','nets','bags','debris'].includes(entry.category) &&
-                    Number.isFinite(Number(entry.lat)) && Number.isFinite(Number(entry.lng)) &&
-                    Number(entry.lat) >= -90 && Number(entry.lat) <= 90 &&
-                    Number(entry.lng) >= -180 && Number(entry.lng) <= 180
+                    entry && typeof entry.id === 'string' &&
+                    entry.source === 'synthetic-scenario-v1' &&
+                    ['bottles','nets','bags','debris'].includes(entry.category) &&
+                    ['low','medium','high'].includes(entry.severity) &&
+                    typeof entry.lat === 'number' && Number.isFinite(entry.lat) &&
+                    typeof entry.lng === 'number' && Number.isFinite(entry.lng) &&
+                    entry.lat >= -90 && entry.lat <= 90 &&
+                    entry.lng >= -180 && entry.lng <= 180 &&
+                    Number.isInteger(entry.minutesAgo) && entry.minutesAgo >= 0 &&
+                    typeof entry.confidence === 'number' &&
+                    Number.isFinite(entry.confidence) &&
+                    entry.confidence >= 0 && entry.confidence <= 100
                 );
-                if (!demoObservations.length) throw new Error('Invalid demo observations');
+                if (demoObservations.length !== records.length ||
+                    new Set(demoObservations.map(row => row.id)).size !== demoObservations.length) {
+                    throw new Error('Invalid or duplicated synthetic observations');
+                }
+                document.getElementById('demoSampleCount').title = 'Versioned, synthetic scenario data from bundled JSON';
+                document.getElementById('demoSampleCount').dataset.source = 'bundled';
             } catch (_) {
                 demoObservations = Array.from({length: 12}, (_, i) => ({
                     id: 'fallback-' + (i + 1),
@@ -2588,6 +2601,7 @@
                     lng: 65 + i * 3
                 }));
                 document.getElementById('demoSampleCount').title = 'Using offline fallback demo observations';
+                document.getElementById('demoSampleCount').dataset.source = 'fallback';
             }
             renderDemoFeed();
         }
