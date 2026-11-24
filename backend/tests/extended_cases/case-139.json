@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-139",
+  "params": {
+    "limit": 55,
+    "offset": 147,
+    "category": "bags",
+    "severity": "low"
+  },
+  "status": 200,
+  "total": 16,
+  "ids": [],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}
