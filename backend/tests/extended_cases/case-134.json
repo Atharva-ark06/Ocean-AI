@@ -1,0 +1,13 @@
+{
+  "case_id": "CASE-134",
+  "params": {
+    "limit": 50,
+    "offset": 52,
+    "category": "nets",
+    "severity": "medium"
+  },
+  "status": 200,
+  "total": 14,
+  "ids": [],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}

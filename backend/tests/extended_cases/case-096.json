@@ -1,0 +1,26 @@
+{
+  "case_id": "CASE-096",
+  "params": {
+    "limit": 36,
+    "offset": 5,
+    "category": "debris",
+    "severity": "high"
+  },
+  "status": 200,
+  "total": 17,
+  "ids": [
+    "DEMO-0048",
+    "DEMO-0061",
+    "DEMO-0092",
+    "DEMO-0105",
+    "DEMO-0109",
+    "DEMO-0122",
+    "DEMO-0126",
+    "DEMO-0139",
+    "DEMO-0152",
+    "DEMO-0183",
+    "DEMO-0196",
+    "DEMO-0200"
+  ],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}

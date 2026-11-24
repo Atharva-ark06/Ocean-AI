@@ -1,0 +1,17 @@
+{
+  "case_id": "CASE-132",
+  "params": {
+    "limit": 24,
+    "offset": 14,
+    "category": "debris",
+    "severity": "high"
+  },
+  "status": 200,
+  "total": 17,
+  "ids": [
+    "DEMO-0183",
+    "DEMO-0196",
+    "DEMO-0200"
+  ],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}

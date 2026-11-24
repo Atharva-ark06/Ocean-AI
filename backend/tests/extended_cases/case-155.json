@@ -1,0 +1,29 @@
+{
+  "case_id": "CASE-155",
+  "params": {
+    "limit": 23,
+    "offset": 1,
+    "category": "bags",
+    "severity": "medium"
+  },
+  "status": 200,
+  "total": 16,
+  "ids": [
+    "DEMO-0015",
+    "DEMO-0019",
+    "DEMO-0032",
+    "DEMO-0036",
+    "DEMO-0049",
+    "DEMO-0062",
+    "DEMO-0093",
+    "DEMO-0106",
+    "DEMO-0110",
+    "DEMO-0123",
+    "DEMO-0127",
+    "DEMO-0140",
+    "DEMO-0171",
+    "DEMO-0184",
+    "DEMO-0197"
+  ],
+  "description": "Filtered, bounded, explicitly synthetic ocean observation contract"
+}
